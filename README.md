@@ -60,3 +60,11 @@ Go to [latest](https://github.com/ahmetcanisik/fvuarJS/releases/latest) version.
 ```javascript
 <script src="https://cdn.jsdelivr.net/gh/ahmetcanisik/fvuarJS/fvuar1.1.min.js"></script>
 ```
+
+
+# What's next?
+
+- [x] [minify-js](https://minify-js.com/) should release its compressed version.
+- [ ] A code will be added so that the user can change the color of the text on the alert to the color he/she chooses.
+- [ ] A piece of code will be added where the user can change the font size as he wishes.
+- [ ] There will be a restriction on the maximum value of the text on the Alert close button.
