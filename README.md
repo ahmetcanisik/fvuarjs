@@ -28,5 +28,5 @@ Go to [latest](https://github.com/ahmetcanisik/fvuarJS/releases/latest) version.
 
 #### Copy this script and paste your html file.
 ```javascript
-<script src="https://cdn.jsdelivr.net/gh/ahmetcanisik/fvuarJS/cra1.6.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ahmetcanisik/fvuarJS/fvuar1.0.min.js"></script>
 ```
