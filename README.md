@@ -43,15 +43,6 @@ create.newAlert({
 <!-- ... -->
 ```
 
-##### app.js
-```javascript
-const create = new feJS()
-create.copiedClipboard({
-    id: ''
-    text: "This is alert without taking advantage of fvuarJS.",
-})
-```
-
 | Functions | Parameters | Details |
 | ----------| ------------- | -------- |
 | `newAlert()` | `type`, `text`, `closeButtonText`, `time` | - `type`: You can determine the theme of your alert by choosing one of the following types: success, default, error, orange, info, warning. <br> - `text`: The articles you want to appear in the alert will be located here. <br> - `closeButtonText`: You can specify the text to be written on the button that terminates your alert. <br> - `time`: You can specify the survival time of your alert (the value in seconds you enter, after which the alert will disappear). |
