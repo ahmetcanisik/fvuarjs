@@ -2,14 +2,14 @@
 
 ### Example of alert messages presented by the browser:
 ```javascript
-alert("Bu, fvuarJS'in nimetlerinden yararlanmamış alert.")
+alert("This is alert without taking advantage of fvuarJS.")
 ```
 
 ### This is an example of the alert messages you created with us:
 ```javascript
 const create = new feJS()
 create.newAlert({
-    text: "Bu, fvuarJS'in nimetlerinden yararlanmamış alert.",
+    text: "This is alert without taking advantage of fvuarJS.",
 })
 ```
 
