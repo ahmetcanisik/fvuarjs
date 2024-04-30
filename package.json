@@ -1,0 +1,31 @@
+{
+  "name": "fvuarjs",
+  "version": "1.1.0",
+  "description": "create your alert messages!",
+  "main": "fvuar1.1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmetcanisik/fvuarJS.git"
+  },
+  "keywords": [
+    "fvuar",
+    "fvuarJS",
+    "alert",
+    "custom",
+    "alert",
+    "alert",
+    "messages",
+    "copied",
+    "copied",
+    "clipboard"
+  ],
+  "author": "FVuar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmetcanisik/fvuarJS/issues"
+  },
+  "homepage": "https://github.com/ahmetcanisik/fvuarJS#readme"
+}
