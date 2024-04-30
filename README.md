@@ -58,7 +58,7 @@ Go to [latest](https://github.com/ahmetcanisik/fvuarJS/releases/latest) version.
 
 #### Copy this script and paste your html file.
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/fvuarjs@1.2.0/fvuar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fvuarjs@1.2/fvuar.min.js"></script>
 ```
 
 
