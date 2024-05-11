@@ -30,30 +30,32 @@ Go to [latest](https://github.com/ahmetcanisik/fvuarJS/releases/latest) version.
 
 ##### index.html
 ```html
-<!-- ... -->
-<head>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fvuarjs@1.2/fvuar.min.js"></script>
-</head>
-<body>
-    <input id="myInput" type="text" value="Test value">
-    <button type="button" id="copy">Copy clipboard</button>
-    <script>
-        const create = new feJS();
-        const copyBtn = document.getElementById('copy');
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- ... -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fvuarjs@1.2/fvuar.min.js"></script>
+    </head>
+    <body>
+        <input id="myInput" type="text" value="Test value">
+        <button type="button" id="copy">Copy clipboard</button>
+        <script>
+            const create = new feJS();
+            const copyBtn = document.getElementById('copy');
 
-        copyBtn.addEventListener('click', () => {
-            create.copiedClipboard({
-                id: 'myInput',
-                text: 'Copied!',
-                type: 'success',
-                closeButtonText: 'done',
-                time: 3
+            copyBtn.addEventListener('click', () => {
+                create.copiedClipboard({
+                    id: 'myInput',
+                    text: 'Copied!',
+                    type: 'success',
+                    closeButtonText: 'done',
+                    time: 3
+                });
             });
-        });
 
-    </script>
-</body>
-<!-- ... -->
+        </script>
+    </body>
+</html>
 ```
 
 | Functions | Parameters | Details |
