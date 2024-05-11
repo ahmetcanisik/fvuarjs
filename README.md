@@ -32,7 +32,7 @@ Go to [latest](https://github.com/ahmetcanisik/fvuarJS/releases/latest) version.
 ```html
 <!-- ... -->
 <head>
-    <script src="https://cdn.jsdelivr.net/gh/ahmetcanisik/fvuarJS/fvuar1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fvuarjs@1.2/fvuar.min.js"></script>
 </head>
 <body>
     <input id="myInput" type="text" value="Test value">
