@@ -9,12 +9,12 @@ class feJS {
             orange: 'orange',
             alert: 'alert',
             code: {
-                static: this.__randomSTRValue__FV(),
+                static: this.__randomSTRValue__FV(9),
                 dynamic: () => this.__randomSTRValue__FV()
             }
         };
         this.__incElement = document.createElement('div');
-        this.__incElement.classList.add(`__incElement-${this.types.code.static}`);
+        this.__incElement.classList.add('i'+this.types.code.static);
         document.body.appendChild(this.__incElement);
         this.Count = {
             len: 0,
@@ -53,10 +53,25 @@ class feJS {
     --slate-bg: #f8fafc;
     --slate-fg: #020617;
 }
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+.i${this.types.code.static}fade {
+    animation: fadein 1s;
+}
+.o${this.types.code.static}fade {
+    animation: fadeout 1s;
+    animation-fill-mode: forwards;
+}
 body {
     min-height: 100vh;
 }
-.__incElement-${this.types.code.static} {
+.i${this.types.code.static} {
     z-index: 9997 !important;
     pointer-events: none;
     user-select: none;
@@ -209,10 +224,10 @@ body {
 `);
     }
 
-    __randomSTRValue__FV() {
+    __randomSTRValue__FV(len = 6) {
         const c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         let result = '';
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < len; i++) {
             result += c.charAt(Math.floor(Math.random() * c.length));
         }
         return result;
@@ -268,6 +283,8 @@ body {
 
         const __setVisibility__FV = (visibility, counter = false) => {
             if (visibility === 'none') {
+                alertElement.classList.remove(`i${this.types.code.static}fade`);
+                alertElement.classList.add(`o${this.types.code.static}fade`);
                 closeButton.remove();
                 alertElement.remove();
                 if (counter) {
@@ -322,6 +339,7 @@ body {
         activePosition(position);
 
         alertElement.classList.add(`__alertMessage__FV-${this.types.code.static}`);
+        alertElement.classList.add(`i${this.types.code.static}fade`);
         closeButton.classList.add(`__closeAlertFV__FV-${this.types.code.static}`);
         spanAlert.classList.add(`__spanAlertFV__FV-${this.types.code.static}`);
         this.__incElement.appendChild(alertElement);

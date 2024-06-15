@@ -3,9 +3,6 @@
   "version": "1.3.0",
   "description": "create your alert messages!",
   "main": "fvuar.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ahmetcanisik/fvuarJS.git"
@@ -20,7 +17,10 @@
     "messages",
     "copied",
     "copied",
-    "clipboard"
+    "clipboard",
+    "fvuar1.0",
+    "fvuar1.2",
+    "fvuar1.3"
   ],
   "author": "FVuar",
   "license": "ISC",
