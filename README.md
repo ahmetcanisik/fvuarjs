@@ -23,7 +23,7 @@ create.newAlert({
 
 #### Copy this script and paste your html file.
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/fvuarjs@1.2/fvuar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fvuarjs@latest/fvuar.min.js"></script>
 ```
 
 <br><br>
@@ -38,7 +38,7 @@ create.newAlert({
 <html lang="en">
     <head>
         <!-- ... -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fvuarjs@1.2/fvuar.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fvuarjs@latest/fvuar.min.js"></script>
     </head>
     <body>
         <input id="myInput" type="text" value="Test value">
@@ -75,7 +75,7 @@ create.newAlert({
 # What's next?
 
 - [x] [minify-js](https://minify-js.com/) should release its compressed version.
-- [ ] A code will be added so that the user can change the color of the text on the alert to the color he/she chooses.
+- [x] A code will be added so that the user can change the color of the text on the alert to the color he/she chooses.
 - [ ] A piece of code will be added where the user can change the font size as he wishes.
 - [ ] There will be a restriction on the maximum value of the text on the Alert close button.
 - [ ] An animation will be added to Alert's existence and disappearance using css.
