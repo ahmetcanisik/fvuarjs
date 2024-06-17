@@ -34,8 +34,8 @@
         const posPanel = document.querySelector('.posPanel');
         const btnCopy = document.getElementById('btnCopy');
         const create = new feJS({
-            maxTime: 2000,
-            maxCount: 9
+            maxTime: 10,
+            maxCount: 6
         })
 
         // theme buttons
@@ -70,7 +70,7 @@
                     type: "success",
                     text: text,
                     position: pos,
-                    time: 2000
+                    time: 4
                 });
             });
             btn.innerText = text;
