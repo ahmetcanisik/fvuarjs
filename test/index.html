@@ -7,71 +7,44 @@
     <link rel="stylesheet" href="./styling.dev.css">
 </head>
 <body>
-    <div class="outbox">
-        <h1>Testing... v1.3.1</h1>
-        <h3>Testing copyToClipboard function</h3>
-        <div class="panel">
-            <input type="text" placeholder="kopyalanmasını istediğiniz metni giriniz..." class="inp" id="testInp">
-            <button type="button" class="btn" id="btnCopy">copy to clipboard</button>
-        </div>
-        <h3>Testing newAlert function</h3>
-        <div class="panel btnPanel"></div>
+    <div class="box">
+        <fieldset class="outbox">
+            <legend>
+                <h1>Testing... v1.3.1</h1>
+            </legend>
+            <div class="panel copyPanel">
+                <h3>Testing copyToClipboard function</h3>
+                <input type="text" placeholder="Enter the text you want to copy..." class="inp" id="testInp">
+                <button type="button" class="btn" id="btnCopy">copy to clipboard</button>
+            </div>
+            <h3>Testing newAlert function</h3>
+            <fieldset class="panel btnPanel">
+                <legend>Button Themes</legend>
+            </fieldset>
+            <fieldset class="panel posPanel">
+                <legend>Positions</legend>
+            </fieldset>
+        </fieldset>
     </div>
+    <script src="./data.js"></script>
     <script src="./fvuar1.3.1.js"></script>
     <script>
+        // Variable Defination
+        const btnPanel = document.querySelector('.btnPanel');
+        const posPanel = document.querySelector('.posPanel');
+        const btnCopy = document.getElementById('btnCopy');
         const create = new feJS({
-            maxTime: 6,
-            maxCount: 6
+            maxTime: 2000,
+            maxCount: 9
         })
-        const buttons = [
-            {
-                type: "default",
-                text: "Your Alert is here!",
-                time: 6,
-                position: "top-left",
-                innerText: "theme: default, position: top-left"
-            },
-            {
-                type: "error",
-                text: "Your Alert is here!",
-                time: 3,
-                position: "bottom-left",
-                innerText: "theme: error, position: bottom-left"
-            },
-            {
-                type: "success",
-                text: "Your Alert is here!",
-                time: 4,
-                position: "top-center",
-                innerText: "theme: success, position: top-center"
-            },
-            {
-                type: "info",
-                text: "Your Alert is here!",
-                time: 5,
-                position: "bottom-center",
-                innerText: "theme: info, position: bottom-center"
-            },
-            {
-                type: "warning",
-                text: "Your Alert is here!",
-                time: 2,
-                position: "top-right",
-                innerText: "theme: warning, position: top-right"
-            },
-            {
-                type: "orange",
-                text: "Your Alert is here!",
-                time: 1,
-                position: "bottom-right",
-                innerText: "theme: orange, position: bottom-right"
-            }
-        ]
+
+        // theme buttons
         const ul = document.createElement('ul');
-        for (const button of buttons) {
+        for (const button of themeButtons) {
             const li = document.createElement('li');
-            li.classList.add('btn', button.type);
-            li.addEventListener('click', () => {
+            const btn = document.createElement('button');
+            btn.classList.add('btn', button.type);
+            btn.addEventListener('click', () => {
                 create.newAlert({
                     type: button.type,
                     text: button.text,
@@ -79,21 +52,47 @@
                     position: button.position
                 })
             })
-            li.innerText = button.innerText;
+            btn.innerText = button.type;
+            li.appendChild(btn);
             ul.appendChild(li);
         }
-        document.querySelector('.btnPanel').appendChild(ul);
+        btnPanel.appendChild(ul);
 
-        document.getElementById('btnCopy').addEventListener('click', () => {
+        // position buttons
+        const posList = document.createElement('ul');
+        for (const pos of posX) {
+            const li = document.createElement('li');
+            const btn = document.createElement('button');
+            const text = pos.replace('-', ' ');
+            btn.classList.add('btn', 'success');
+            btn.addEventListener('click', () => {
+                create.newAlert({
+                    type: "success",
+                    text: text,
+                    position: pos,
+                    time: 2000
+                });
+            });
+            btn.innerText = text;
+            li.appendChild(btn);
+            posList.appendChild(li);
+        }
+        posPanel.appendChild(posList);
+
+
+        // copy to clipboard panel
+        btnCopy.addEventListener('click', () => {
             create.copiedClipboard({
                 id: "testInp",
                 type: "success",
                 text: `Copied! ${document.getElementById('testInp').value}`,
                 time: 4,
-                position: "center-left"
+                position: "top-right"
             })
         })
-
+        
     </script>
+    <script src="./themes.js"></script>
+    <script src="./positions.js"></script>
 </body>
 </html>

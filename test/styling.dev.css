@@ -2,6 +2,7 @@
     --slate-bg: #020617;
     --slate-fg: #f8fafc;
     --red-bg: #450a0a;
+    --red-b: #e66a6a;
     --red-fg: #fef7f7;
     --orange-bg: #5a1801;
     --orange-fg: #ff9020;
@@ -587,16 +588,34 @@
     } 
 }
 
+* {
+    top: 0;
+    left: 0;
+}
+
 body {
+    margin: 0;
+    padding: 0;
     font-family: -apple-system,system-ui,'Ubuntu',BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
     background-color: var(--slate-1);
     color: var(--slate-11);
 }
 h1, h3 {
     color: var(--slate-11);
+    text-align: center;
+}
+.box {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .outbox {
+    width: 600px;
     display: flex;
+    margin: 0 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -609,6 +628,18 @@ h1, h3 {
 .btnPanel {
     display: flex;
     flex-direction: column;
+}
+.copyPanel {
+    display: flex;
+    flex-direction: column;
+}
+fieldset {
+    border-radius: 8px;
+    legend {
+        display: table;
+        margin: 0 auto;
+        text-align: center;
+    }
 }
 .inp {
     background-color: var(--blue-1);
@@ -693,23 +724,45 @@ h1, h3 {
 }
 
 ul {
+    margin: 0;
+    padding: 0;
     list-style-type: none;
     user-select: none;
     display: grid;
     font-size: 1rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     li {
-        text-align: center;
+        button {
+            width: 100%;
+            text-align: center;
+        }
     }
 }
 
 @media (max-width: 628px) {
+    .outbox {
+        width: 300px;
+    }
     ul {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-        user-select: none;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        li {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .copyPanel {
+        display: flex;
+        flex-direction: column;
+    }
+    ul {
         display: grid;
         justify-content: center;
         align-items: center;
