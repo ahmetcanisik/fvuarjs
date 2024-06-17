@@ -1,5 +1,5 @@
 class feJS {
-    constructor() {
+    constructor({ maxCount = 4, maxTime = 4 }) {
         this.types = {
             success: 'success',
             error: 'error',
@@ -18,8 +18,8 @@ class feJS {
         document.body.appendChild(this.__incElement);
         this.Count = {
             len: 0,
-            maxCount: 4,
-            maxTime: 4,
+            maxCount: maxCount,
+            maxTime: maxTime,
             pos: {
                 "top-left": 10,
                 "top-center": 10,
@@ -50,8 +50,8 @@ class feJS {
     --blue-fg: #38bdf8;
 }
 @media (prefers-color-scheme: dark) {
-    --slate-bg: #f8fafc;
-    --slate-fg: #020617;
+    --slate-fg: #f8fafc;
+    --slate-bg: #020617;
 }
 @keyframes fadein {
     from { opacity: 0; }
@@ -215,6 +215,22 @@ body {
 
 @media (max-width: 628px) {
     .__alertMessage__FV-${this.types.code.static} {
+        position: fixed;
+        pointer-events: auto;
+        user-select: auto;
+        -webkit-user-select: auto;
+        -moz-user-select: auto;
+        z-index: 9998 !important;
+        display: flex !important;
+        justify-content: space-between;
+        border-bottom: 1px solid #000;
+        border-radius: 4px !important;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, 0.22) !important;
+        flex-direction: row-reverse !important;
+        color: var(--slate-fg) !important;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
         min-width: 60%;
         max-width: 60%;
         padding: calc(100% / 40) !important;

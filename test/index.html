@@ -3,94 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing this script...</title>
+    <title>Testing... Version 1.3.1</title>
     <link rel="stylesheet" href="./styling.dev.css">
 </head>
 <body>
     <div class="outbox">
-        <h1>Testing... v1.3</h1>
+        <h1>Testing... v1.3.1</h1>
         <h3>Testing copyToClipboard function</h3>
         <div class="panel">
             <input type="text" placeholder="kopyalanmasını istediğiniz metni giriniz..." class="inp" id="testInp">
             <button type="button" class="btn" id="btnCopy">copy to clipboard</button>
         </div>
         <h3>Testing newAlert function</h3>
-        <div class="panel btnPanel">
-            <button type="button" class="btn default">theme = default, position = top-left</button>
-            <button type="button" class="btn success">theme = success, position = top-center</button>
-            <button type="button" class="btn warning">theme = warning, position = top-right</button>
-            <button type="button" class="btn error">theme = error, position = bottom-left</button>
-            <button type="button" class="btn info">theme = info, position = bottom-center</button>
-            <button type="button" class="btn orange">theme = orange, position = bottom-right</button>
-        </div>
+        <div class="panel btnPanel"></div>
     </div>
-    <script src="./fvuar1.3.min.js"></script>
+    <script src="./fvuar1.3.1.js"></script>
     <script>
-        const create = new feJS()
-        const btn = document.getElementById('btnCopy')
-        const inp = document.getElementById('testInp')
-
-        const def = document.querySelector('.default')
-        const success = document.querySelector('.success')
-        const warning = document.querySelector('.warning')
-        const error = document.querySelector('.error')
-        const info = document.querySelector('.info')
-        const orange = document.querySelector('.orange')
-
-        def.addEventListener('click', () => {
-            create.newAlert({
+        const create = new feJS({
+            maxTime: 6,
+            maxCount: 6
+        })
+        const buttons = [
+            {
                 type: "default",
                 text: "Your Alert is here!",
-                time: 4,
-                position: "top-left"
-            })
-        })
-        success.addEventListener('click', () => {
-            create.newAlert({
+                time: 6,
+                position: "top-left",
+                innerText: "theme: default, position: top-left"
+            },
+            {
+                type: "error",
+                text: "Your Alert is here!",
+                time: 3,
+                position: "bottom-left",
+                innerText: "theme: error, position: bottom-left"
+            },
+            {
                 type: "success",
                 text: "Your Alert is here!",
                 time: 4,
-                position: "top-center"
-            })
-        })
-        warning.addEventListener('click', () => {
-            create.newAlert({
-                type: "warning",
-                text: "Your Alert is here!",
-                time: 4,
-                position: "top-right"
-            })
-        })
-        error.addEventListener('click', () => {
-            create.newAlert({
-                type: "error",  
-                text: "Your Alert is here!",
-                time: 4,
-                position: "bottom-left"
-            })
-        })
-        info.addEventListener('click', () => {
-            create.newAlert({
+                position: "top-center",
+                innerText: "theme: success, position: top-center"
+            },
+            {
                 type: "info",
                 text: "Your Alert is here!",
-                time: 4,
-                position: "bottom-center"
-            })
-        })
-        orange.addEventListener('click', () => {
-            create.newAlert({
+                time: 5,
+                position: "bottom-center",
+                innerText: "theme: info, position: bottom-center"
+            },
+            {
+                type: "warning",
+                text: "Your Alert is here!",
+                time: 2,
+                position: "top-right",
+                innerText: "theme: warning, position: top-right"
+            },
+            {
                 type: "orange",
                 text: "Your Alert is here!",
-                time: 4,
-                position: "bottom-right"
+                time: 1,
+                position: "bottom-right",
+                innerText: "theme: orange, position: bottom-right"
+            }
+        ]
+        const ul = document.createElement('ul');
+        for (const button of buttons) {
+            const li = document.createElement('li');
+            li.classList.add('btn', button.type);
+            li.addEventListener('click', () => {
+                create.newAlert({
+                    type: button.type,
+                    text: button.text,
+                    time: button.time,
+                    position: button.position
+                })
             })
-        })
+            li.innerText = button.innerText;
+            ul.appendChild(li);
+        }
+        document.querySelector('.btnPanel').appendChild(ul);
 
-        btn.addEventListener('click', () => {
+        document.getElementById('btnCopy').addEventListener('click', () => {
             create.copiedClipboard({
                 id: "testInp",
                 type: "success",
-                text: `Copied! ${inp.value}`,
+                text: `Copied! ${document.getElementById('testInp').value}`,
                 time: 4,
                 position: "center-left"
             })

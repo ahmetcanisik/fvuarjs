@@ -1,4 +1,16 @@
 :root {
+    --slate-bg: #020617;
+    --slate-fg: #f8fafc;
+    --red-bg: #450a0a;
+    --red-fg: #fef7f7;
+    --orange-bg: #5a1801;
+    --orange-fg: #ff9020;
+    --yellow-bg: #f0d465;
+    --yellow-fg: #422006;
+    --green-bg: #134d14;
+    --green-fg: #bdf0b3;
+    --blue-bg: #0e214d;
+    --blue-fg: #38bdf8;
     /* Slate */
     --slate-1: #f8fafc; /* slate-50 */
     --slate-2: #f1f5f9; /* slate-100 */
@@ -626,8 +638,8 @@ h1, h3 {
     }
 }
 .default {
-    background-color: var(--slate-11);
-    color: var(--slate-1);
+    background-color: var(--slate-bg);
+    color: var(--slate-fg);
     border: 1px solid var(--slate-11);
     &:hover {
         outline-offset: 2px;
@@ -635,8 +647,8 @@ h1, h3 {
     }
 }
 .success {
-    background-color: var(--green-7);
-    color: var(--green-1);
+    background-color: var(--green-fg);
+    color: var(--green-bg);
     border: 1px solid var(--green-6);
     &:hover {
         outline-offset: 2px;
@@ -644,8 +656,8 @@ h1, h3 {
     }
 }
 .warning {
-    background-color: var(--yellow-5);
-    color: var(--yellow-11);
+    background-color: var(--yellow-bg);
+    color: var(--yellow-fg);
     border: 1px solid var(--yellow-6);
     &:hover {
         outline-offset: 2px;
@@ -653,8 +665,8 @@ h1, h3 {
     }
 }
 .error {
-    background-color: var(--red-6);
-    color: var(--red-1);
+    background-color: var(--red-b);
+    color: var(--red-bg);
     border: 1px solid var(--red-6);
     &:hover {
         outline-offset: 2px;
@@ -662,8 +674,8 @@ h1, h3 {
     }
 }
 .info {
-    background-color: var(--blue-6);
-    color: var(--blue-1);
+    background-color: var(--blue-fg);
+    color: var(--blue-bg);
     border: 1px solid var(--blue-6);
     &:hover {
         outline-offset: 2px;
@@ -671,11 +683,41 @@ h1, h3 {
     }
 }
 .orange {
-    background-color: var(--orange-7);
-    color: var(--orange-1);
+    background-color: var(--orange-fg);
+    color: var(--orange-bg);
     border: 1px solid var(--orange-6);
     &:hover {
         outline-offset: 2px;
         outline: 2px solid var(--orange-7);
+    }
+}
+
+ul {
+    list-style-type: none;
+    user-select: none;
+    display: grid;
+    font-size: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    li {
+        text-align: center;
+    }
+}
+
+@media (max-width: 628px) {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        user-select: none;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+        li {
+            text-align: center;
+        }
     }
 }
