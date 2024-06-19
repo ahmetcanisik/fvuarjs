@@ -3,7 +3,7 @@ const themeButtons = [
     {
         type: "default",
         text: "Your Alert is here!",
-        time: 6,
+        time: 2000,
         position: "top-left"
     },
     {

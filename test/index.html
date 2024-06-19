@@ -13,11 +13,13 @@
                 <h1>Testing... v1.3.1</h1>
             </legend>
             <div class="panel copyPanel">
-                <h3>Testing copyToClipboard function</h3>
-                <input type="text" placeholder="Enter the text you want to copy..." class="inp" id="testInp">
-                <button type="button" class="btn" id="btnCopy">copy to clipboard</button>
+                <h3>Testing <abbr title="Copy to clipboard">copyToClipboard</abbr> function</h3>
+                <div class="control">
+                    <input type="text" placeholder="Enter the text you want to copy..." class="inp" id="testInp">
+                    <button type="button" class="btn" id="btnCopy">copy to clipboard</button>
+                </div>
             </div>
-            <h3>Testing newAlert function</h3>
+            <h3>Testing <abbr title="New Alert">newAlert</abbr> function</h3>
             <fieldset class="panel btnPanel">
                 <legend>Button Themes</legend>
             </fieldset>
@@ -27,14 +29,14 @@
         </fieldset>
     </div>
     <script src="./data.js"></script>
-    <script src="./fvuar1.3.1.js"></script>
+    <script src="./fvuar1.4.js"></script>
     <script>
         // Variable Defination
         const btnPanel = document.querySelector('.btnPanel');
         const posPanel = document.querySelector('.posPanel');
         const btnCopy = document.getElementById('btnCopy');
         const create = new feJS({
-            maxTime: 10,
+            maxTime: 2000,
             maxCount: 6
         })
 
@@ -70,7 +72,7 @@
                     type: "success",
                     text: text,
                     position: pos,
-                    time: 4
+                    time: 2000
                 });
             });
             btn.innerText = text;
@@ -79,20 +81,16 @@
         }
         posPanel.appendChild(posList);
 
-
         // copy to clipboard panel
-        btnCopy.addEventListener('click', () => {
+        btnCopy.addEventListener('click', (e) => {
             create.copiedClipboard({
-                id: "testInp",
+                target: document.querySelector('#testInp'),
                 type: "success",
-                text: `Copied! ${document.getElementById('testInp').value}`,
                 time: 4,
                 position: "top-right"
             })
         })
         
     </script>
-    <script src="./themes.js"></script>
-    <script src="./positions.js"></script>
 </body>
 </html>
