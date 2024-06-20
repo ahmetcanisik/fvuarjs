@@ -2,11 +2,6 @@
 
 <br><br>
 
-### Example of alert messages presented by the browser:
-```javascript
-alert("This is alert without taking advantage of fvuarJS.")
-```
-
 ### This is an example of the alert messages you created with us:
 ```javascript
 const create = new feJS()
@@ -52,6 +47,7 @@ create.newAlert({
                     id: 'myInput',
                     text: 'Copied!',
                     type: 'success',
+                    position: 'top-center',
                     closeButtonText: 'done',
                     time: 3
                 });
@@ -75,7 +71,8 @@ create.newAlert({
 # What's next?
 
 - [x] [minify-js](https://minify-js.com/) should release its compressed version.
-- [x] A code will be added so that the user can change the color of the text on the alert to the color he/she chooses.
+- [x] A piece of code will be added that will allow the user to change the warning message location according to his needs.
+- [] A code will be added so that the user can change the color of the text on the alert to the color he/she chooses.
 - [ ] A piece of code will be added where the user can change the font size as he wishes.
 - [ ] There will be a restriction on the maximum value of the text on the Alert close button.
 - [ ] An animation will be added to Alert's existence and disappearance using css.
