@@ -1,96 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing... Version 1.3.1</title>
-    <link rel="stylesheet" href="./styling.dev.css">
+    <title>Testing... Version 1.4</title>
+    <link rel="stylesheet" href="./styling.min.css">
 </head>
+
 <body>
-    <div class="box">
-        <fieldset class="outbox">
-            <legend>
-                <h1>Testing... v1.3.1</h1>
-            </legend>
-            <div class="panel copyPanel">
-                <h3>Testing <abbr title="Copy to clipboard">copyToClipboard</abbr> function</h3>
-                <div class="control">
-                    <input type="text" placeholder="Enter the text you want to copy..." class="inp" id="testInp">
-                    <button type="button" class="btn" id="btnCopy">copy to clipboard</button>
-                </div>
-            </div>
-            <h3>Testing <abbr title="New Alert">newAlert</abbr> function</h3>
-            <fieldset class="panel btnPanel">
-                <legend>Button Themes</legend>
-            </fieldset>
-            <fieldset class="panel posPanel">
-                <legend>Positions</legend>
-            </fieldset>
-        </fieldset>
-    </div>
-    <script src="./data.js"></script>
-    <script src="./fvuar1.4.js"></script>
-    <script>
-        // Variable Defination
-        const btnPanel = document.querySelector('.btnPanel');
-        const posPanel = document.querySelector('.posPanel');
-        const btnCopy = document.getElementById('btnCopy');
-        const create = new feJS({
-            maxTime: 2000,
-            maxCount: 6
-        })
-
-        // theme buttons
-        const ul = document.createElement('ul');
-        for (const button of themeButtons) {
-            const li = document.createElement('li');
-            const btn = document.createElement('button');
-            btn.classList.add('btn', button.type);
-            btn.addEventListener('click', () => {
-                create.newAlert({
-                    type: button.type,
-                    text: button.text,
-                    time: button.time,
-                    position: button.position
-                })
-            })
-            btn.innerText = button.type;
-            li.appendChild(btn);
-            ul.appendChild(li);
-        }
-        btnPanel.appendChild(ul);
-
-        // position buttons
-        const posList = document.createElement('ul');
-        for (const pos of posX) {
-            const li = document.createElement('li');
-            const btn = document.createElement('button');
-            const text = pos.replace('-', ' ');
-            btn.classList.add('btn', 'success');
-            btn.addEventListener('click', () => {
-                create.newAlert({
-                    type: "success",
-                    text: text,
-                    position: pos,
-                    time: 2000
-                });
-            });
-            btn.innerText = text;
-            li.appendChild(btn);
-            posList.appendChild(li);
-        }
-        posPanel.appendChild(posList);
-
-        // copy to clipboard panel
-        btnCopy.addEventListener('click', (e) => {
-            create.copiedClipboard({
-                target: document.querySelector('#testInp'),
-                type: "success",
-                time: 4,
-                position: "top-right"
-            })
-        })
-        
-    </script>
+    <div class="box"></div>
+    <script src="./jquery3.7.1.min.js"></script>
+    <script src="./data.min.js"></script>
+    <script src="./fvuar1.4.min.js"></script>
+    <script src="./main.min.js"></script>
 </body>
+
 </html>

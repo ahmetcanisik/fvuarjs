@@ -324,7 +324,7 @@ body {
                 this.options.len += 1;
                 alertElement.style.display = 'flex';
             } else {
-                console.log("__setVisibility__FV() fonksiyonu iki parametre alır: ['flex','none'], Counter(boolean)")
+                console.error("__setVisibility__FV() fonksiyonu iki parametre alır: ['flex','none'], Counter(boolean)")
             }
         };
 
@@ -348,7 +348,7 @@ body {
                 alertElement.className = this.__c__FV(0, this.options.themes.orange);
                 break;
             default:
-                console.log("Please write success, warning or error. usage should be createAlert({ e: 'success', a: 'Your message' })");
+                console.error("Please write success, warning or error. usage should be createAlert({ e: 'success', a: 'Your message' })");
         }
 
         const activePosition = (position = position) => {
@@ -378,13 +378,12 @@ body {
             clearTimeout(timer);
             displayTime = 0;
         }, {once: true});
-
-        console.log("Alert created:", { type, position, text, closeButtonText, time });
     }
 
     newAlert({type = "success", position = "top-center" ,text = "Your Alert is here!", closeButtonText = '&#x2715;', time = this.options.maxTime}) {
+        console.log(this.options);
         if (this.options.len >= this.options.maxCount || time > this.options.maxTime) {
-            console.log(`Max alert count(${this.options.maxCount}) reached!`);
+            console.error(`Max alert count(${this.options.maxCount}) reached!`);
             return null;
         } else {
             this.alert({type, position, text, closeButtonText, time});
@@ -392,26 +391,34 @@ body {
     }
 
     typeTarget(target) {
+        let result;
         if (typeof target === "string") {
             const elem = document.querySelector(target);
             if (!elem) {
                 console.error("Element not found with the provided Target:", target);
                 return;
             }
-            return elem.localName;
+            result = elem.localName;
         } else {
-            return target.localName;
+            result = target.localName;
         }
+        return result;
     }
 
     isInp(target) {
+        let result;
         if (this.typeTarget(target) === 'input' && typeof target === "string") {
-            return document.querySelector(target).value;
+            result = document.querySelector(target).value;
         } else if(typeof target === "string") {
-            return document.querySelector(target).innerText;
+            result = document.querySelector(target).innerText;
         } else {
-            return target.innerText;
+            if (target.value) {
+                result = target.value;
+            } else {
+                result = target.innerText;
+            }
         }
+        return result;
     }
 
     copiedClipboard({target, position = "top-center", type = "success", text = "Copied!", closeButtonText = '&#x2715;', time = 10}) {
@@ -420,7 +427,7 @@ body {
             console.error("Element not found with the provided Target:", target);
             return;
         }
-        
+
         navigator.clipboard.writeText(this.isInp(target))
             .then(() => {
                 this.newAlert({type, position, text, closeButtonText, time});
