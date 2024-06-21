@@ -1,10 +1,16 @@
-import GetTypes from './components/getTypes';
+import Header from './components/header';
+import TestArea from "./components/testArea";
+import UpdateNotes from "./components/updateNotes";
+import Footer from "./components/footer";
+
 function App() {
     return (
-        <>
-            <h1>enviorement: {process.env.NODE_ENV}</h1>
-            <GetTypes />
-        </>
+        <div className="box">
+            <Header />
+            <TestArea />
+            <UpdateNotes />
+            <Footer />
+        </div>
     );
 }
 
