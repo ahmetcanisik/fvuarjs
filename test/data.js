@@ -41,23 +41,52 @@ const themeButtons = [
     }
 ]
 const content = {
+    icon: {
+        preferences: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 0 1-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 1 1-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 0 1 6.336-4.486l-3.276 3.276a3.004 3.004 0 0 0 2.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M4.867 19.125h.008v.008h-.008v-.008Z" /></svg>`,
+        theme: {
+            title: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" /></svg>`,
+        },
+    },
     langs: [
         {
             short_name: "en-US",
-            long_name: "English"
+            long_name: "English",
+            icon: "🇺🇸"
         },
         {
             short_name: "tr-TR",
-            long_name: "Türkçe"
+            long_name: "Türkçe",
+            icon: "🇹🇷"
         }
     ],
     "en-US": {
         header: {
             title: "Testing... Version 1.4",
+            preferences: "Preferences",
             select_language: {
                 title: "Select Language",
                 close: "Close",
                 slogan: "modern alert library"
+            },
+            select_theme: {
+                title: "Select Theme",
+                themes: [
+                    {
+                        name: "system",
+                        value: "System",
+                        icon: "⚙️"
+                    },
+                    {
+                        name: "light",
+                        value: "Light",
+                        icon: "☀️"
+                    },
+                    {
+                        name: "dark",
+                        value: "Dark",
+                        icon: "🌙"
+                    }
+                ]
             }
         },
         title: "Testing... v1.4",
@@ -93,10 +122,31 @@ const content = {
     "tr-TR": {
         header: {
             title: "Test edilen versiyon: 1.4",
+            preferences: "Tercihler",
             select_language: {
                 title: "Dil Tercihi",
                 close: "Kapat",
-                 slogan: "modern uyarı mesajları"
+                slogan: "modern uyarı mesajları"
+            },
+            select_theme: {
+                title: "Tema Tercihi",
+                themes: [
+                    {
+                        name: "system",
+                        value: "Sistem",
+                        icon: "⚙️"
+                    },
+                    {
+                        name: "light",
+                        value: "Açık",
+                        icon: "☀️"
+                    },
+                    {
+                        name: "dark",
+                        value: "Koyu",
+                        icon: "🌙"
+                    }
+                ]
             }
         },
         title: "Test edilen sürüm 1.4",
