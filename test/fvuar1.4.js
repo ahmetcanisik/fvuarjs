@@ -381,7 +381,6 @@ body {
     }
 
     newAlert({type = "success", position = "top-center" ,text = "Your Alert is here!", closeButtonText = '&#x2715;', time = this.options.maxTime}) {
-        console.log(this.options);
         if (this.options.len >= this.options.maxCount || time > this.options.maxTime) {
             console.error(`Max alert count(${this.options.maxCount}) reached!`);
             return null;

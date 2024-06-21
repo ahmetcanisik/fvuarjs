@@ -7,7 +7,8 @@ $(document).ready(function () {
     const cl = content[preferences.lang];
     const stored = {
         lang: preferences.lang || "en-US",
-        theme: preferences.theme || "system"
+        theme: preferences.theme || "system",
+        colors: preferences.colors || "static"
     }
     const box = $('.box');
 
@@ -19,6 +20,22 @@ $(document).ready(function () {
     document.documentElement.lang = stored.lang.split('-')[0];
     $('title').text(cl.header.title);
 
+    function updatePreferences({ lang, theme, colors }) {
+        let pref = {
+            lang: lang || stored.lang,
+            theme: theme || stored.theme,
+            colors: colors || stored.colors
+        };
+        localStorage.setItem('preferences', JSON.stringify(pref));
+
+        if (pref.theme !== 'system') {
+            document.documentElement.dataset.theme = pref.theme;
+        } else {
+            document.documentElement.removeAttribute("data-theme");
+        }
+        location.reload();
+    }
+    
     function copyPanel(parent) {
         const copyPanel = $('<div class="panel copyPanel"></div>');
         parent.append(copyPanel);
@@ -72,21 +89,6 @@ $(document).ready(function () {
         btnPanel.append(ul);
     }
 
-    function updatePreferences({ lang, theme }) {
-        let pref = {
-            lang: lang || preferences.lang,
-            theme: theme || preferences.theme
-        };
-        localStorage.setItem('preferences', JSON.stringify(pref));
-
-        if (pref.theme !== 'system') {
-            document.documentElement.dataset.theme = pref.theme;
-        } else {
-            document.documentElement.removeAttribute("data-theme");
-        }
-        location.reload();
-    }
-
     function posPanel(parent) {
         const posPanel = $(`<fieldset class="panel posPanel"></fieldset>`);
         parent.append(posPanel);
@@ -99,10 +101,11 @@ $(document).ready(function () {
         for (const pos of posX) {
             const li = $('<li></li>');
             const text = pos.replace('-', ' ');
-            const btn = $(`<button type="button" class="btn success">${text}</button>`);
+            let t = stored.colors === "static" ? "success" : types[Math.floor(Math.random() * types.length)];
+            const btn = $(`<button type="button" class="btn ${t}">${text}</button>`);
             btn.click(() => {
                 create.newAlert({
-                    type: "success",
+                    type: t,
                     text: text,
                     position: pos,
                     time: 4

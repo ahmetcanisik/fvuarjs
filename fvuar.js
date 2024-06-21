@@ -1,25 +1,31 @@
 class feJS {
-    constructor() {
-        this.types = {
-            success: 'success',
-            error: 'error',
-            default: 'default',
-            warning: 'warning',
-            info: 'info',
-            orange: 'orange',
-            alert: 'alert',
-            code: {
-                static: this.__randomSTRValue__FV(9),
-                dynamic: () => this.__randomSTRValue__FV()
+    constructor({ maxCount = 4, maxTime = 4 } = {}) {
+        this.__randomSTRValue__FV = function(length) {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
             }
+            return result;
         };
-        this.__incElement = document.createElement('div');
-        this.__incElement.classList.add('i'+this.types.code.static);
-        document.body.appendChild(this.__incElement);
-        this.Count = {
+        this.code = {
+            static: this.__randomSTRValue__FV(9),
+            dynamic: (count = 6) => this.__randomSTRValue__FV(count)
+        };
+        this.options = {
             len: 0,
-            maxCount: 4,
-            maxTime: 4,
+            maxCount: maxCount,
+            maxTime: maxTime,
+            incRandom: ['div', 'aside'],
+            themes: {
+                success: 'success',
+                error: 'error',
+                default: 'default',
+                warning: 'warning',
+                info: 'info',
+                orange: 'orange',
+                alert: 'alert'
+            },
             pos: {
                 "top-left": 10,
                 "top-center": 10,
@@ -30,57 +36,60 @@ class feJS {
                 "bottom-left": 10,
                 "bottom-center": 10,
                 "bottom-right": 10
+            },
+            colors: {
+                "slate-bg": this.code.dynamic(12),
+                "slate-fg": this.code.dynamic(12),
+                "red-bg": this.code.dynamic(12),
+                "red-b": this.code.dynamic(12),
+                "red-fg": this.code.dynamic(12),
+                "orange-bg": this.code.dynamic(12),
+                "orange-fg": this.code.dynamic(12),
+                "yellow-bg": this.code.dynamic(12),
+                "yellow-fg": this.code.dynamic(12),
+                "green-bg": this.code.dynamic(12),
+                "green-fg": this.code.dynamic(12),
+                "blue-bg": this.code.dynamic(12),
+                "blue-fg": this.code.dynamic(12)
             }
         };
+        this.__incElement = document.createElement(this.options.incRandom[Math.floor(Math.random() * this.options.incRandom.length)]);
+        this.__incElement.classList.add('i'+this.code.static);
+        document.body.appendChild(this.__incElement);
         this.__addStyleTag__FV(`
 
 :root {
-    --slate-bg: #020617;
-    --slate-fg: #f8fafc;
-    --red-bg: #450a0a;
-    --red-b: #e66a6a;
-    --red-fg: #fef7f7;
-    --orange-bg: #5a1801;
-    --orange-fg: #ff9020;
-    --yellow-bg: #f0d465;
-    --yellow-fg: #422006;
-    --green-bg: #134d14;
-    --green-fg: #bdf0b3;
-    --blue-bg: #0e214d;
-    --blue-fg: #38bdf8;
+    --s${this.options.colors["slate-bg"]}: #020617;
+    --s${this.options.colors["slate-fg"]}: #f8fafc;
+    --s${this.options.colors["red-bg"]}: #450a0a;
+    --s${this.options.colors["red-b"]}: #e66a6a;
+    --s${this.options.colors["red-fg"]}: #fef7f7;
+    --s${this.options.colors["orange-bg"]}: #5a1801;
+    --s${this.options.colors["orange-fg"]}: #ff9020;
+    --s${this.options.colors["yellow-bg"]}: #f0d465;
+    --s${this.options.colors["yellow-fg"]}: #422006;
+    --s${this.options.colors["green-bg"]}: #134d14;
+    --s${this.options.colors["green-fg"]}: #bdf0b3;
+    --s${this.options.colors["blue-bg"]}: #0e214d;
+    --s${this.options.colors["blue-fg"]}: #38bdf8;
 }
 @media (prefers-color-scheme: dark) {
-    --slate-bg: #f8fafc;
-    --slate-fg: #020617;
-}
-@keyframes fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-@keyframes fadeout {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-.i${this.types.code.static}fade {
-    animation: fadein 1s;
-}
-.o${this.types.code.static}fade {
-    animation: fadeout 1s;
-    animation-fill-mode: forwards;
+    --s${this.options.colors["slate-bg"]}: #ffffff;
+    --s${this.options.colors["slate-fg"]}: #000000;
 }
 body {
-    min-height: 100vh;
+    min-height: 100vh !important;
 }
-.i${this.types.code.static} {
-    z-index: 9997 !important;
+.i${this.code.static} {
+    z-index: 9997 ;
     pointer-events: none;
     user-select: none;
     width: 100%;
     height: auto;
-    min-height: 100% !important;
-    font-family: -apple-system,system-ui,'Ubuntu',BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif !important;
+    min-height: 100% ;
+    font-family: -apple-system,system-ui,'Ubuntu',BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif ;
 }
-.__alertMessage__FV-${this.types.code.static} {
+.__alertMessage__FV-${this.code.static} {
     position: fixed;
     pointer-events: auto;
     user-select: auto;
@@ -88,71 +97,68 @@ body {
     -moz-user-select: auto;
     min-width: 20%;
     max-width: 20%;
-    z-index: 9998 !important;
-    display: flex !important;
+    z-index: 9998 ;
+    display: flex ;
     justify-content: space-between;
     border-bottom: 1px solid #000;
-    border-radius: 4px !important;
-    padding: 10px !important; /* Bu değeri sabit yaptım */
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, 0.22) !important;
-    flex-direction: row-reverse !important;
-    color: var(--slate-fg) !important;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
+    border-radius: 4px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, 0.22) ;
+    flex-direction: row-reverse ;
+    animation: shake 500ms ease-out;
 }
-.__spanAlertFV__FV-${this.types.code.static} {
-    pointer-events: none !important;
-    user-select: none !important;
-    -webkit-user-select: none !important;
-    -moz-user-select: none !important;
+.__spanAlertFV__FV-${this.code.static} {
+    pointer-events: none ;
+    user-select: none ;
+    -webkit-user-select: none ;
+    -moz-user-select: none ;
+    padding: 10px;
 }
-.__closeAlertFV__FV-${this.types.code.static} {
-    background: var(--red-bg) !important;
-    border: none !important;
-    border-radius: 8px;
+.__closeAlertFV__FV-${this.code.static} {
+    background: var(--s${this.options.colors["red-b"]}) ;
+    border: none ;
     outline-offset: none;
-    color: var(--red-fg) !important;
-    padding: 4px 8px !important;
-    cursor: pointer !important;
+    border-radius: 0 4px 4px 0;
+    color: var(--s${this.options.colors["red-bg"]});
+    padding: 4px 8px ;
+    cursor: pointer ;
     &:hover {
         outline-offset: 1px;
-        outline: 1px solid var(--red-bg);
+        outline: 1px solid var(--s${this.options.colors["red-bg"]});
     }
 }
-.alert-default-${this.types.code.static} {
-    background: var(--slate-bg) !important;
-    color: var(--slate-fg) !important;
+.alert-default-${this.code.static} {
+    background: var(--s${this.options.colors["slate-bg"]}) ;
+    color: var(--s${this.options.colors["slate-fg"]}) ;
 }
-.alert-success-${this.types.code.static} {
-    background: var(--green-fg) !important;
-    color: var(--green-bg) !important;
+.alert-success-${this.code.static} {
+    background: var(--s${this.options.colors["green-fg"]}) ;
+    color: var(--s${this.options.colors["green-bg"]}) ;
 }
-.alert-warning-${this.types.code.static} {
-    background: var(--yellow-bg) !important;
-    color: var(--yellow-fg) !important;
+.alert-warning-${this.code.static} {
+    background: var(--s${this.options.colors["yellow-bg"]}) ;
+    color: var(--s${this.options.colors["yellow-fg"]}) ;
 }
-.alert-error-${this.types.code.static} {
-    background: var(--red-b) !important;
-    color: var(--red-bg) !important;
+.alert-error-${this.code.static} {
+    background: var(--s${this.options.colors["red-b"]}) ;
+    color: var(--s${this.options.colors["red-bg"]}) ;
 }
-.alert-info-${this.types.code.static} {
-    background-color: var(--blue-fg) !important;
-    color: var(--blue-bg) !important;
+.alert-info-${this.code.static} {
+    background-color: var(--s${this.options.colors["blue-fg"]}) ;
+    color: var(--s${this.options.colors["blue-bg"]}) ;
 }
-.alert-orange-${this.types.code.static} {
-    background-color: var(--orange-fg) !important;
-    color: var(--orange-bg) !important;
+.alert-orange-${this.code.static} {
+    background-color: var(--s${this.options.colors["orange-fg"]}) ;
+    color: var(--s${this.options.colors["orange-bg"]}) ;
 }
 
-.top-left-${this.types.code.static} {
+.top-left-${this.code.static} {
     top: 10px;
     left: 10px;
     bottom: auto;
     right: auto;
 }
 
-.top-center-${this.types.code.static} {
+.top-center-${this.code.static} {
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
@@ -160,22 +166,14 @@ body {
     right: auto;
 }
 
-.top-right-${this.types.code.static} {
+.top-right-${this.code.static} {
     top: 10px;
     right: 10px;
     left: auto;
     bottom: auto;
 }
 
-.center-left-${this.types.code.static} {
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    bottom: auto;
-    right: auto;
-}
-
-.center-${this.types.code.static} {
+.center-${this.code.static} {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -183,22 +181,30 @@ body {
     right: auto;
 }
 
-.center-right-${this.types.code.static} {
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    bottom: auto;
-    left: auto;
+.center-left-${this.code.static} {
+    top: 50% ;
+    left: 10px ;
+    transform: translateY(-50%) ;
+    bottom: auto ;
+    right: auto ;
 }
 
-.bottom-left-${this.types.code.static} {
+.center-right-${this.code.static} {
+    top: 50% ;
+    right: 10px ;
+    transform: translateY(-50%) ;
+    bottom: auto ;
+    left: auto ;
+}
+
+.bottom-left-${this.code.static} {
     bottom: 10px;
     left: 10px;
     top: auto;
     right: auto;
 }
 
-.bottom-center-${this.types.code.static} {
+.bottom-center-${this.code.static} {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
@@ -206,69 +212,94 @@ body {
     right: auto;
 }
 
-.bottom-right-${this.types.code.static} {
+.bottom-right-${this.code.static} {
     bottom: 10px;
     right: 10px;
     top: auto;
     left: auto;
 }
 
+@keyframes shake {
+	0% {
+		transform: translateY(0);
+	}
+	20% {
+		transform: translateY(-2px);
+	}
+	40% {
+		transform: translateY(2px);
+	}
+	60% {
+		transform: translateY(-2px);
+	}
+	80% {
+		transform: translateY(2px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
 @media (max-width: 628px) {
-    .__alertMessage__FV-${this.types.code.static} {
+    .__alertMessage__FV-${this.code.static} {
+        display: flex ;
+        flex-direction: row-reverse ;
         min-width: 60%;
         max-width: 60%;
-        padding: calc(100% / 40) !important;
+        padding: calc(100% / 40) ;
     }
 }
 
 `);
     }
 
-    __randomSTRValue__FV(len = 6) {
-        const c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        let result = '';
-        for (let i = 0; i < len; i++) {
-            result += c.charAt(Math.floor(Math.random() * c.length));
-        }
-        return result;
-    }
-
-    __addStyleTag__FV(content) {
+    __addStyleTag__FV = (content) => {
         const styleTag = document.createElement('style');
         document.head.appendChild(styleTag);
         styleTag.textContent = content;
-    }
+    };
 
     __c__FV(e, d = undefined) {
         if (e === 1) {
-            return `${this.types.alert}-${this.types.error}-${this.types.code.static}`;
+            return `${this.options.themes.alert}-${this.options.themes.error}-${this.code.static}`;
         } else {
-            return `${this.types.alert}-${d}-${this.types.code.static}`;
+            return `${this.options.themes.alert}-${d}-${this.code.static}`;
         }
     }
 
     repositionAlerts(elem, toWhere, pos, rm = false) {
         if (rm) {
-            this.Count.pos[toWhere] -= 50;
+            this.options.pos[toWhere] -= 50;
             return;
         }
 
         switch (pos) {
             case 'top':
-                elem.style.top = `${this.Count.pos[toWhere]}px`;
+                elem.style.top = `${this.options.pos[toWhere]}px`;
                 break;
             case 'bottom':
-                elem.style.bottom = `${this.Count.pos[toWhere]}px`;
+                elem.style.bottom = `${this.options.pos[toWhere]}px`;
                 break;
             case 'center':
-                elem.style.top = `calc(50% + ${this.Count.pos[toWhere]}px)`;
-                elem.style.left = '50%';
-                elem.style.transform = 'translate(-50%, -50%)';
+                elem.style.top = `calc(50% + ${this.options.pos[toWhere]}px)`;
+                if (toWhere === "center-left") {
+                    elem.style.left = '10px';
+                    elem.style.right = 'auto';
+                    elem.style.transform = 'translateY(-50%)';
+                } else if (toWhere === "center-right") {
+                    elem.style.right = '10px';
+                    elem.style.left = 'auto';
+                    elem.style.transform = 'translateY(-50%)';
+                } else {
+                    elem.style.left = '50%';
+                    elem.style.right = 'auto';
+                    elem.style.transform = 'translate(-50%, -50%)';
+                }
                 break;
             default:
                 break;
         }
-        this.Count.pos[toWhere] += elem.offsetHeight + 50;
+        this.options.pos[toWhere] += elem.offsetHeight + 50;
     }
 
     alert({type, position, text, closeButtonText, time}) {
@@ -277,75 +308,65 @@ body {
         let spanAlert = document.createElement("span");
         let displayTime = time * 1000;
 
-        alertElement.id = `alertMessageFV_${this.types.code.dynamic()}`;
-        closeButton.id = `closeAlertFV_${this.types.code.dynamic()}`;
-        spanAlert.id = `spanAlertFV_${this.types.code.dynamic()}`;
+        alertElement.id = `alertMessageFV_${this.code.dynamic()}`;
+        closeButton.id = `closeAlertFV_${this.code.dynamic()}`;
+        spanAlert.id = `spanAlertFV_${this.code.dynamic()}`;
 
         const __setVisibility__FV = (visibility, counter = false) => {
             if (visibility === 'none') {
-                alertElement.classList.remove(`i${this.types.code.static}fade`);
-                alertElement.classList.add(`o${this.types.code.static}fade`);
                 closeButton.remove();
                 alertElement.remove();
                 if (counter) {
-                    this.Count.len -= 1;
+                    this.options.len -= 1;
                     this.repositionAlerts(alertElement, position, position.split('-')[0], true);
                 }
             } else if (visibility === 'flex') {
-                this.Count.len += 1;
+                this.options.len += 1;
                 alertElement.style.display = 'flex';
             } else {
-                console.log("__setVisibility__FV() fonksiyonu iki parametre alır: ['flex','none'], Counter(boolean)")
+                console.error("__setVisibility__FV() fonksiyonu iki parametre alır: ['flex','none'], Counter(boolean)")
             }
         };
 
         switch (type) {
-            case this.types.error:
+            case this.options.themes.error:
                 alertElement.className = this.__c__FV(1);
                 break;
-            case this.types.default:
-                alertElement.className = this.__c__FV(0, this.types.default);
+            case this.options.themes.default:
+                alertElement.className = this.__c__FV(0, this.options.themes.default);
                 break;
-            case this.types.warning:
-                alertElement.className = this.__c__FV(0, this.types.warning);
+            case this.options.themes.warning:
+                alertElement.className = this.__c__FV(0, this.options.themes.warning);
                 break;
-            case this.types.success:
-                alertElement.className = this.__c__FV(0, this.types.success);
+            case this.options.themes.success:
+                alertElement.className = this.__c__FV(0, this.options.themes.success);
                 break;
-            case this.types.info:
-                alertElement.className = this.__c__FV(0, this.types.info);
+            case this.options.themes.info:
+                alertElement.className = this.__c__FV(0, this.options.themes.info);
                 break;
-            case this.types.orange:
-                alertElement.className = this.__c__FV(0, this.types.orange);
+            case this.options.themes.orange:
+                alertElement.className = this.__c__FV(0, this.options.themes.orange);
                 break;
             default:
-                console.log("Please write success, warning or error. usage should be createAlert({ e: 'success', a: 'Your message' })");
+                console.error("Please write success, warning or error. usage should be createAlert({ e: 'success', a: 'Your message' })");
         }
 
         const activePosition = (position = position) => {
-            alertElement.classList.remove('top-left-'+this.types.code.static);
-            alertElement.classList.remove('top-center-'+this.types.code.static);
-            alertElement.classList.remove('top-right-'+this.types.code.static);
-            alertElement.classList.remove('center-left-'+this.types.code.static);
-            alertElement.classList.remove('center-'+this.types.code.static);
-            alertElement.classList.remove('center-right-'+this.types.code.static);
-            alertElement.classList.remove('bottom-center-'+this.types.code.static);
-            alertElement.classList.remove('bottom-center-'+this.types.code.static);
-            alertElement.classList.remove('bottom-center-'+this.types.code.static);
-            alertElement.classList.add(position+'-'+this.types.code.static);
+            const positions = ['top-left', 'top-center', 'top-right', 'center-left', 'center', 'center-right', 'bottom-left', 'bottom-center', 'bottom-right'];
+            positions.forEach(pos => alertElement.classList.remove(`${pos}-${this.code.static}`));
+            alertElement.classList.add(`${position}-${this.code.static}`);
             this.repositionAlerts(alertElement, position, position.split('-')[0]);
-        }
+        }        
 
         activePosition(position);
 
-        alertElement.classList.add(`__alertMessage__FV-${this.types.code.static}`);
-        alertElement.classList.add(`i${this.types.code.static}fade`);
-        closeButton.classList.add(`__closeAlertFV__FV-${this.types.code.static}`);
-        spanAlert.classList.add(`__spanAlertFV__FV-${this.types.code.static}`);
+        alertElement.classList.add(`__alertMessage__FV-${this.code.static}`);
+        closeButton.classList.add(`__closeAlertFV__FV-${this.code.static}`);
+        spanAlert.classList.add(`__spanAlertFV__FV-${this.code.static}`);
         this.__incElement.appendChild(alertElement);
         alertElement.appendChild(closeButton);
-        spanAlert.innerText = text;
-        closeButton.innerText = closeButtonText;
+        spanAlert.innerHTML = text;
+        closeButton.innerHTML = closeButtonText;
         alertElement.appendChild(spanAlert);
 
         __setVisibility__FV('flex');
@@ -356,27 +377,67 @@ body {
             __setVisibility__FV('none', true);
             clearTimeout(timer);
             displayTime = 0;
-        });
+        }, {once: true});
     }
 
-    newAlert({type = "success", position = "top-center" ,text = "Your Alert is here!", closeButtonText = '∅', time = this.Count.maxTime}) {
-        if (this.Count.len >= this.Count.maxCount || time > this.Count.maxTime) {
-            console.log(`Max alert count(${this.Count.maxCount}) reached!`);
+    newAlert({type = "success", position = "top-center" ,text = "Your Alert is here!", closeButtonText = '&#x2715;', time = this.options.maxTime}) {
+        if (this.options.len >= this.options.maxCount || time > this.options.maxTime) {
+            console.error(`Max alert count(${this.options.maxCount}) reached!`);
             return null;
         } else {
             this.alert({type, position, text, closeButtonText, time});
         }
     }
 
-    copiedClipboard({id = undefined, position = "top-center", type = "success", text = "Copied!", closeButtonText = 'X', time = 10}) {
-        let element = document.getElementById(id);
-        if (!element) {
-            console.error("Element not found with the provided ID:", id);
+    typeTarget(target) {
+        let result;
+        if (typeof target === "string") {
+            const elem = document.querySelector(target);
+            if (!elem) {
+                console.error("Element not found with the provided Target:", target);
+                return;
+            }
+            result = elem.localName;
+        } else {
+            result = target.localName;
+        }
+        return result;
+    }
+
+    isInp(target) {
+        let result;
+        if (this.typeTarget(target) === 'input' && typeof target === "string") {
+            result = document.querySelector(target).value;
+        } else if(typeof target === "string") {
+            result = document.querySelector(target).innerText;
+        } else {
+            if (target.value) {
+                result = target.value;
+            } else {
+                result = target.innerText;
+            }
+        }
+        return result;
+    }
+
+    copiedClipboard({target, position = "top-center", type = "success", text = "Copied!", closeButtonText = '&#x2715;', time = 10}) {
+        // general operations
+        if (!target) {
+            console.error("Element not found with the provided Target:", target);
             return;
         }
-        element.select();
-        element.setSelectionRange(0, 99999);
-        navigator.clipboard.writeText(element.value);
-        this.newAlert({type, position, text, closeButtonText, time});
+
+        navigator.clipboard.writeText(this.isInp(target))
+            .then(() => {
+                this.newAlert({type, position, text, closeButtonText, time});
+            })
+            .catch((err) => {
+                console.error('Text could not be copied: ', err);
+            });
     }
 }
+
+/*
+position özelliğine flex'i dahil edeceğim. bu sayede target ile belirlenen elementin top,left,bottom ve right konumlarını alıp
+alert i bu konumlara çapırabileceğiz.
+*/
