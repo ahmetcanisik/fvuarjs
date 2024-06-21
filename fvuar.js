@@ -437,6 +437,8 @@ body {
     }
 }
 
+module.exports=feJS;
+
 /*
 position özelliğine flex'i dahil edeceğim. bu sayede target ile belirlenen elementin top,left,bottom ve right konumlarını alıp
 alert i bu konumlara çapırabileceğiz.
