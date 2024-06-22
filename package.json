@@ -1,15 +1,22 @@
 {
   "name": "fvuarjs",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "create your alert messages!",
   "main": "fvuar.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ahmetcanisik/fvuarJS.git"
   },
+  "files": [
+    "fvuar.js",
+    "fvuar.min.js",
+    "LICENSE",
+    "README.md"
+  ],
   "keywords": [
     "fvuar",
     "fvuarJS",
+    "ahmetcanisik",
     "alert",
     "custom",
     "alert",
@@ -20,9 +27,12 @@
     "clipboard",
     "fvuar1.0",
     "fvuar1.2",
-    "fvuar1.3"
+    "fvuar1.3",
+    "fvuar1.4",
+    "fvuar1.4.1",
+    "fvuar1.4.2"
   ],
-  "author": "FVuar",
+  "author": "ahmetcanisik <can.isik.business@gmail.com> (https://ahmetcanisik.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ahmetcanisik/fvuarJS/issues"

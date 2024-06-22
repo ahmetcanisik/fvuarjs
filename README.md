@@ -1,4 +1,4 @@
-# `fvuarJS v1.4.1`
+# `fvuarJS v1.4.2`
 Create your alert messages with fvuarJS!
 
 <br><br>
@@ -19,7 +19,7 @@ create.newAlert({
 
 #### Copy this script and paste your html file.
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/fvuarjs@1.4.1/fvuar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fvuarjs@1.4.2/fvuar.min.js"></script>
 ```
 
 <br><br>
@@ -34,7 +34,7 @@ create.newAlert({
 <html lang="en">
     <head>
         <!-- ... -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fvuarjs@1.4.1/fvuar.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fvuarjs@1.4.2/fvuar.min.js"></script>
     </head>
     <body>
         <button type="button" id="copy">Copy clipboard</button>
