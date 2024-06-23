@@ -1,5 +1,6 @@
 .idea/*
 .vscode/*
+.npmignore
 build/.idea/*
 build/.vscode/*
 .test/*
