@@ -1,0 +1,10 @@
+.idea/*
+.vscode/*
+.npmignore
+build/.idea/*
+build/.vscode/*
+.test/*
+gh-pages/*
+gh-pages
+./gh-pages/*
+./gh-pages/
