@@ -1,4 +1,6 @@
-<image src="./banner.webp" alt="fvuarjs" />
+<div align="center">
+    <image src="./banner.webp" alt="fvuarjs" />
+</div>
 
 # `fvuarJS v1.4.2`
 Create your alert messages with fvuarJS!
