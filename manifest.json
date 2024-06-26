@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "short_name": "fvuarjs",
   "name": "Create your aler messages with fvuarjs!",
+=======
+  "short_name": "React App",
+  "name": "Create React App Sample",
+>>>>>>> 653cd50be3ed0077af616788cfb9615eae23778c
   "icons": [
     {
       "src": "favicon.ico",
