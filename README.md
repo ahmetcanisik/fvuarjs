@@ -1,5 +1,5 @@
 <div align="center">
-    <image src="./banner.webp" alt="fvuarjs" />
+    <image src="./banner.webp" width="512" height="512" alt="fvuarjs" />
 </div>
 
 # `fvuarJS v1.4.2`
