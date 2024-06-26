@@ -2,17 +2,10 @@
   "name": "fvuarjs",
   "version": "1.4.2",
   "description": "create your alert messages!",
-  "main": "fvuar.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ahmetcanisik/fvuarJS.git"
   },
-  "files": [
-    "fvuar.js",
-    "fvuar.min.js",
-    "LICENSE",
-    "README.md"
-  ],
   "keywords": [
     "fvuar",
     "fvuarJS",
