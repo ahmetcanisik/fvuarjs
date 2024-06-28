@@ -1,11 +1,9 @@
 {
   "name": "fvuarjs",
-  "description": "Create your aler messages with fvuarjs!",
+  "author": "ahmetcanisik <can.isik.business@gmail.com> (https://ahmetcanisik.com)",
   "version": "1.4.2",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ahmetcanisik/fvuarJS.git"
-  },
+  "license": "MIT",
+  "private": true,
   "keywords": [
     "fvuar",
     "fvuarJS",
@@ -33,10 +31,42 @@
     "fvuar1.4.1",
     "fvuar1.4.2"
   ],
-  "author": "ahmetcanisik <can.isik.business@gmail.com> (https://ahmetcanisik.com)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ahmetcanisik/fvuarJS/issues"
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "fvuarjs": "^1.4.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.0"
   },
-  "homepage": "https://github.com/ahmetcanisik/fvuarJS"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }

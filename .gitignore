@@ -4,3 +4,4 @@
 build/.idea/*
 build/.vscode/*
 .test/*
+node_modules/*
