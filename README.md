@@ -1,3 +1,4 @@
+<img src="./logo192.png" width="192" height="192" alt="fvuarjs logo 192x192">
 # `fvuarJS v1.4.2`
 Create your alert messages with fvuarJS!
 
