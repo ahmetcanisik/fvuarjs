@@ -1,0 +1,102 @@
+:root {
+    --default-fg: #f8fafc;
+    --default-bg: #475569;
+    --warn-bg: #fef3c7;
+    --warn-fg: #b45309;
+    --success-bg: #d1fae5;
+    --success-fg: #047857;
+    --info-bg: #e0f2fe;
+    --info-fg: #0369a1;
+    --error-bg: #ffe4e6;
+    --error-fg: #be123c;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --default-fg: #020617;
+        --default-bg: #94a3b8;
+        --warn-bg: #9a6b15;
+        --warn-fg: #fee5ae;
+        --success-bg: #1f5f1a;
+        --success-fg: #c0edc5;
+        --info-bg: #0c4a6e;
+        --info-fg: #8edcfb;
+        --error-bg: #6d2222;
+        --error-fg: #ff9f92;
+    }
+}
+[data-theme="light"] {
+    --default-fg: #f8fafc;
+    --default-bg: #475569;
+    --warn-bg: #fef3c7;
+    --warn-fg: #b45309;
+    --success-bg: #d1fae5;
+    --success-fg: #047857;
+    --info-bg: #e0f2fe;
+    --info-fg: #0369a1;
+    --error-bg: #ffe4e6;
+    --error-fg: #be123c;
+}
+[data-theme="dark"] {
+    --default-fg: #020617;
+    --default-bg: #94a3b8;
+    --warn-bg: #9a6b15;
+    --warn-fg: #fee5ae;
+    --success-bg: #1f5f1a;
+    --success-fg: #c0edc5;
+    --info-bg: #0c4a6e;
+    --info-fg: #8edcfb;
+    --error-bg: #6d2222;
+    --error-fg: #ff9f92;
+}
+.alert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+.alert-button {
+    background-color: var(--default-fg);
+    color: var(--default-fg);
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px 10px;
+    border: 1px solid var(--default-fg);
+    &:hover, &:focus, &:active {
+        outline-offset: 2px;
+        outline: 2px solid var(--default-fg);
+    }
+}
+.alert-info {
+    background-color: var(--info-bg);
+    color: var(--info-fg);
+    border: 1px solid var(--info-fg);
+}
+.alert-warn {
+    background-color: var(--warn-bg);
+    color: var(--warn-fg);
+    border: 1px solid var(--warn-fg);
+}
+.alert-default {
+    background-color: var(--default-bg);
+    color: var(--default-fg);
+    border: 1px solid var(--default-fg);
+}
+.alert-success {
+    background-color: var(--success-bg);
+    color: var(--success-fg);
+    border: 1px solid var(--success-fg);
+}
+.alert-error {
+    background-color: var(--error-bg);
+    color: var(--error-fg);
+    border: 1px solid var(--error-fg);
+}

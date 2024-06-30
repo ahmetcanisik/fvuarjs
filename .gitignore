@@ -1,7 +1,10 @@
-.idea/*
-.vscode/*
+.idea
+.vscode
 .npmignore
-build/.idea/*
-build/.vscode/*
-.test/*
-node_modules/*
+
+build
+
+node_modules
+
+# Local Netlify folder
+.netlify
