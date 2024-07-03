@@ -42,6 +42,7 @@ export const themeButtons = [
     }
 ]
 export const content = {
+    project_name: "fvuarjs",
     langs: [
         {
             short_name: "en-US",
@@ -91,6 +92,32 @@ export const content = {
                 button: {
                     test: "Testing Version",
                     notes: "Update Notes"
+                }
+            }
+        },
+        page: {
+            "home": {
+                meta: {
+                    title: "Home",
+                    description: "Simple, Fast and Modern Alert Library, home page"
+                }
+            },
+            "update-notes": {
+                meta: {
+                    title: "Update Notes",
+                    description: "You can read notes on past and future updates here, update notes page"
+                }
+            },
+            "test": {
+                meta: {
+                    title: "Testing Page",
+                    description: "You can view the new tested version here test page"
+                }
+            },
+            "404": {
+                meta: {
+                    title: "Page Not Found!",
+                    description: "The page URL you are trying to reach is corrupt or does not exist! 404 page"
                 }
             }
         },
@@ -175,6 +202,32 @@ export const content = {
                 button: {
                     test: "Test Edilen Sürüm",
                     notes: "Güncelleme Notları"
+                }
+            }
+        },
+        page: {
+            "home": {
+                meta: {
+                    title: "Ana Sayfa",
+                    description: "Hızlı, Basit ve Modern Tasarımıyla... ana sayfa"
+                }
+            },
+            "update-notes": {
+                meta: {
+                    title: "Güncelleme Notları",
+                    description: "Geçmiş ve gelecek güncellemelerle ilgili notları buradan okuyabilirsiniz güncelleme notları sayfası"
+                }
+            },
+            "test": {
+                meta: {
+                    title: "Yeni Sürüm Test Ediliyor...",
+                    description: "Test edilen yeni sürüme buradan bakabilirsiniz test sayfası"
+                }
+            },
+            "404": {
+                meta: {
+                    title: "Page Not Found!",
+                    description: "Ulaşmaya çalıştığınız sayfa url si bozuk veya böyle bir url mevcut değil! 404 sayfası"
                 }
             }
         },

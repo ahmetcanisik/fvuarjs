@@ -38,3 +38,10 @@ export function Icon({ icon, width = "24", height = "24" }) {
     }
     return svg;
 }
+export function configurationMetaTags({title = "fvuar.js.org", description = "Simple, Fast and Modern Alert Library"}) {
+    const titleTag = document.querySelector('title');
+    const descriptionTag = document.querySelector('meta[name="description"]');
+
+    titleTag.innerText = title + " | " + content.project_name;
+    descriptionTag.content = description + " | " + content.project_name;
+}

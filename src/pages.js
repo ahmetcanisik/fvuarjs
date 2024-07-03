@@ -6,28 +6,28 @@ import NotFound from './components/error';
 
 export function Home() {
     return (
-        <Layout>
+        <Layout page="home">
             <Welcome />
         </Layout>
     );
 }
 export function ChangeLog() {
     return (
-        <Layout>
+        <Layout page="update-notes">
             <UpdateNotes />
         </Layout>
     );
 }
 export function Test() {
     return (
-        <Layout>
+        <Layout page="test">
             <TestArea />
         </Layout>
     );
 }
 export function Error() {
     return (
-        <Layout>
+        <Layout page="404">
             <NotFound />
         </Layout>
     );
