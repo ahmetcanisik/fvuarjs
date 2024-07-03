@@ -5,22 +5,6 @@ import { Tooltip } from "react-tooltip";
 import { useRef, useState, useEffect } from "react";
 import { useUpdatePreferences, usePreferences } from "./hooks";
 
-function addOpactiyToSite(remove = false) {
-    if (remove) {
-        document.querySelectorAll('.outbox, .box').forEach(box => {
-            box.classList.remove('opacity-50');
-        })
-    } else {
-        document.querySelectorAll('.outbox, .box').forEach(box => {
-            if (box.classList.contains('opactiy-50')) {
-                box.classList.remove('opacity-50');
-            } else {
-                box.classList.add('opacity-50');
-            }
-        })
-    }
-}
-
 export default function Header() {
     const [showSideBar, setShowSideBar] = useState(false);
     const [innerWidth, setInnerWeight] = useState(window.innerWidth);
@@ -35,11 +19,9 @@ export default function Header() {
     const openDialog = (e) => {
         if (sidebar.current.classList.contains("show")) {
             sidebar.current.classList.remove('show');
-            addOpactiyToSite(true)
             setShowSideBar(false)
         } else {
             sidebar.current.classList.add('show');
-            addOpactiyToSite()
             setShowSideBar(true)
         }
     }
@@ -91,26 +73,30 @@ function NavBar({ className }) {
 
 function SideBar({ referance, element, className, showMobileNavbar = false }) {
     const closeSideBar = () => {
-        addOpactiyToSite(true)
         element.current.classList.remove('show')
     }
     return (
-        <div ref={referance} className={`sidebar ${className}`}>
-            <button className="btn close-sidebar" onClick={closeSideBar}><Icon icon="close" /></button>
-            <h2 className="text-center"><Icon icon="preferences"/> {stored.cl.header.preferences}</h2>
-            <LangPanel/>
-            <ThemePanel/>
-            {showMobileNavbar && <NavBar className="mobile-bar"/>}
-        </div>
+        <>
+            <div ref={referance} className={`sidebar ${className}`}>
+                <div className="block-dom"></div>
+                <div className="sidebar-content">
+                    <button className="btn close-sidebar" onClick={closeSideBar}><Icon icon="close"/></button>
+                    <h2 className="text-center"><Icon icon="preferences"/> {stored.cl.header.preferences}</h2>
+                    <LangPanel/>
+                    <ThemePanel/>
+                    {showMobileNavbar && <NavBar className="mobile-bar"/>}
+                </div>
+            </div>
+        </>
     )
 }
 
 function LangPanel() {
     const updatePreferences = useUpdatePreferences();
-    const { preferences } = usePreferences(); // get the current preferences from context
+    const {preferences} = usePreferences(); // get the current preferences from context
     const initialLang = content.langs.find(lang => lang.short_name === preferences.lang); // use preferences.lang instead of stored.lang
     const handleChange = (e) => {
-        updatePreferences({ lang: e.target.value });
+        updatePreferences({lang: e.target.value});
         window.location.reload();
     }
 
