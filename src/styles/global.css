@@ -1170,6 +1170,7 @@
 * {
     top: 0;
     left: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -1193,6 +1194,7 @@ body {
     font-family: -apple-system, system-ui, 'Ubuntu', BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--slate-1);
     color: var(--slate-11);
+    overflow-x: hidden;
 }
 
 h1,
@@ -1286,12 +1288,17 @@ h3 {
     color: var(--js);
 }
 
+
+
 .openLangDialog {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2px;
     border: 1px solid var(--slate-11);
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
 }
 
 .panel {
@@ -1604,6 +1611,47 @@ nav .navbar li a {
     color: var(--logo);
 }
 
+.sidebar {
+    width: 500px;
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    bottom: 0;
+    left: auto;
+    z-index: 100;
+    background-color: transparent;
+    color: var(--slate-11);
+    outline: 4px solid var(--slate-4);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    border-radius: 4px 0 0 4px;
+    transition: right 0.2s ease-in-out, visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    backdrop-filter: blur(8px);
+}
+
+.sidebar.show {
+    visibility: visible;
+    opacity: 100%;
+    right: 0;
+}
+.close-sidebar {
+    z-index: 102;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    bottom: auto;
+    background-color: var(--red-5);
+    color: var(--red-11);
+}
+
+.opacity-50 {
+    opacity: 40%;
+}
+
 @media (max-width: 1024px) {
     .bar {
         width: 100%;
@@ -1613,10 +1661,6 @@ nav .navbar li a {
 
     .outbox,
     .welcome {
-        width: 100%;
-    }
-
-    dialog {
         width: 100%;
     }
 
@@ -1637,6 +1681,7 @@ nav .navbar li a {
         width: 100%;
         display: flex;
         justify-content: start;
+
     }
 
     .panel,
@@ -1676,6 +1721,9 @@ nav .navbar li a {
 @media (max-width: 628px) {
     nav {
         display: none;
+    }
+    .sidebar {
+        width: 100%;
     }
 }
 

@@ -1,27 +1,70 @@
 import { stored, Icon } from './lib/utilities';
 import { content } from './lib/data';
-import { useLocation } from 'react-router-dom';
+import Image from './image';
+import { Tooltip } from "react-tooltip";
 import { useRef, useState, useEffect } from "react";
 import { useUpdatePreferences, usePreferences } from "./hooks";
 
+function addOpactiyToSite(remove = false) {
+    if (remove) {
+        document.querySelectorAll('.outbox, .box').forEach(box => {
+            box.classList.remove('opacity-50');
+        })
+    } else {
+        document.querySelectorAll('.outbox, .box').forEach(box => {
+            if (box.classList.contains('opactiy-50')) {
+                box.classList.remove('opacity-50');
+            } else {
+                box.classList.add('opacity-50');
+            }
+        })
+    }
+}
+
 export default function Header() {
+    const [showSideBar, setShowSideBar] = useState(false);
+    const [innerWidth, setInnerWeight] = useState(window.innerWidth);
+    const sidebar = useRef();
+    useEffect(() => {
+        const handleResize = () => {
+            setInnerWeight(window.innerWidth);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    const openDialog = (e) => {
+        if (sidebar.current.classList.contains("show")) {
+            sidebar.current.classList.remove('show');
+            addOpactiyToSite(true)
+            setShowSideBar(false)
+        } else {
+            sidebar.current.classList.add('show');
+            addOpactiyToSite()
+            setShowSideBar(true)
+        }
+    }
     return (
-        <header className="header outbox">
-            <div className="bar">
-                <Logo />
-                <NavBar />
-                <Dialog />
-            </div>
-        </header>
+        <>
+            <header className="header outbox">
+                <div className="bar">
+                    <Logo/>
+                    {innerWidth >= 629 && <NavBar/>}
+                    <button className="openLangDialog btn" onClick={openDialog}><Icon
+                        icon="hamburger"/> {innerWidth >= 629 && stored.cl.header.preferences}
+                    </button>
+                </div>
+            </header>
+            <SideBar referance={sidebar} element={sidebar} className={showSideBar ? "show" : ''} showMobileNavbar={innerWidth <= 628 && true}/>
+        </>
     );
 }
 
 function Logo() {
-    const path = useLocation();
+    const path = window.location;
     return (
         <hgroup>
             <a href='/' target={path.pathname === '/' && '_blank'} className='logos'>
-                <img src="/logo192.png" width="64" height="64" alt="fvuarJS" />
+                <Image image={{src: "/logo192.png", width: "64", height: "64", alt: "fvuarJS"}}/>
             </a>
             <a href='/' target={path.pathname === '/' && '_blank'} className='logo-text'>
                 <span className='logo'>./fvuar<span className='js-text'>JS</span></span>
@@ -32,47 +75,34 @@ function Logo() {
 }
 
 function NavBar({ className }) {
-    const path = useLocation();
+    const path = window.location;
     return (
         <nav className={className}>
             <ul className="navbar">
                 { className && <h3 className='text-left'><Icon icon="document" /> {stored.cl.header.menu.title}</h3> }
-                <li><a href='/test' className={`btn${path.pathname === "/test" ? '-active' : ''}`}>{stored.cl.header.menu.button.test}</a></li>
-                <li><a href='/update-notes' className={`btn${path.pathname === "/update-notes" ? '-active' : ''}`}>{stored.cl.header.menu.button.notes}</a></li>
+                <li><a href='/test' data-tooltip-id={"testPageTooltip"+className} data-tooltip-content={stored.cl.header.menu.button.test} className={`btn${path.pathname === "/test" ? '-active' : ''}`}>{stored.cl.header.menu.button.test}</a></li>
+                <li><a href='/update-notes' data-tooltip-id={"updateNotesPageTooltip"+className} data-tooltip-content={stored.cl.header.menu.button.notes} className={`btn${path.pathname === "/update-notes" ? '-active' : ''}`}>{stored.cl.header.menu.button.notes}</a></li>
+                <Tooltip id={"testPageTooltip"+className} />
+                <Tooltip id={"updateNotesPageTooltip"+className} />
             </ul>
         </nav>
     );
 }
 
-function Dialog() {
-    const [innerWidth, setInnerWeight] = useState(window.innerWidth);
-    useEffect(() => {
-        const handleResize = () => {
-            setInnerWeight(window.innerWidth);
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-    const dialog = useRef();
-    const openDialog = () => {
-        dialog.current.showModal();
+function SideBar({ referance, element, className, showMobileNavbar = false }) {
+    const closeSideBar = () => {
+        addOpactiyToSite(true)
+        element.current.classList.remove('show')
     }
-    const closeDialog = () => {
-        dialog.current.close();
-    }
-
     return (
-        <>
-            <button className="openLangDialog btn" title={stored.cl.header.preferences} onClick={openDialog}><Icon icon="preferences"/> {innerWidth >= 380 && stored.cl.header.preferences} </button>
-            <dialog ref={dialog}>
-                <h2 className="text-center"><Icon icon="preferences"/> {stored.cl.header.preferences}</h2>
-                <LangPanel/>
-                <ThemePanel/>
-                { innerWidth <= 628 && <NavBar className="mobile-bar" /> }
-                <button type="button" id="closeLangDialog" className="btn close" onClick={closeDialog} autoFocus>{stored.cl.header.select_language.close}</button>
-            </dialog>
-        </>
-    );
+        <div ref={referance} className={`sidebar ${className}`}>
+            <button className="btn close-sidebar" onClick={closeSideBar}><Icon icon="close" /></button>
+            <h2 className="text-center"><Icon icon="preferences"/> {stored.cl.header.preferences}</h2>
+            <LangPanel/>
+            <ThemePanel/>
+            {showMobileNavbar && <NavBar className="mobile-bar"/>}
+        </div>
+    )
 }
 
 function LangPanel() {

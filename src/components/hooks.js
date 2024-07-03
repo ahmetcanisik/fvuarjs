@@ -47,4 +47,4 @@ export const useUpdatePreferences = () => {
     return updatePreferences;
 };
 
-
+export function usePath() {return window.location.pathname};
