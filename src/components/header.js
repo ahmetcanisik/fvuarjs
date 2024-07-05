@@ -27,6 +27,7 @@ export default function Header() {
     }
     return (
         <>
+            <SideBar referance={sidebar} element={sidebar} className={showSideBar ? "show" : ''} showMobileNavbar={innerWidth <= 628 && true}/>
             <header className="header outbox">
                 <div className="bar">
                     <Logo/>
@@ -36,7 +37,6 @@ export default function Header() {
                     </button>
                 </div>
             </header>
-            <SideBar referance={sidebar} element={sidebar} className={showSideBar ? "show" : ''} showMobileNavbar={innerWidth <= 628 && true}/>
         </>
     );
 }
@@ -77,8 +77,8 @@ function SideBar({ referance, element, className, showMobileNavbar = false }) {
     }
     return (
         <>
-            <div ref={referance} className={`sidebar ${className}`}>
-                <div className="block-dom"></div>
+            <aside ref={referance} className={`sidebar ${className}`}>
+                <div className="block-dom" onClick={closeSideBar}></div>
                 <div className="sidebar-content">
                     <button className="btn close-sidebar" onClick={closeSideBar}><Icon icon="close"/></button>
                     <h2 className="text-center"><Icon icon="preferences"/> {stored.cl.header.preferences}</h2>
@@ -86,7 +86,7 @@ function SideBar({ referance, element, className, showMobileNavbar = false }) {
                     <ThemePanel/>
                     {showMobileNavbar && <NavBar className="mobile-bar"/>}
                 </div>
-            </div>
+            </aside>
         </>
     )
 }

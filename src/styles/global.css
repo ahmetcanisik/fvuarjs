@@ -6,7 +6,6 @@
 
 html {
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 *,
@@ -25,7 +24,7 @@ body {
     font-family: 'Ubuntu Sans' ,-apple-system, system-ui, 'Ubuntu', BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--slate-1);
     color: var(--slate-11);
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 h1,
@@ -70,7 +69,7 @@ h3 {
 }
 
 .header {
-    position: sticky;
+    position: sticky !important;
     width: 100%;
     background-color: var(--slate-2);
     box-shadow: 0 1px 3px 0 var(--shadow), 0 1px 2px -1px var(--shadow);
@@ -87,6 +86,7 @@ h3 {
     align-items: center;
     user-select: none;
     -moz-user-select: none;
+    -webkit-user-select: none;
 }
 .bar hgroup {
     display: flex;
@@ -145,6 +145,8 @@ h3 {
     padding: 0;
     list-style-type: none;
     user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
     display: grid;
     font-size: 1rem;
     grid-template-columns: repeat(3, 1fr);
@@ -460,6 +462,8 @@ nav .navbar li a {
     backdrop-filter: blur(8px);
     user-select: none;
     pointer-events: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 .block-dom {
@@ -490,8 +494,10 @@ nav .navbar li a {
 .sidebar.show {
     visibility: visible;
     opacity: 1;
-    pointer-events: all;
-    user-select: all;
+    user-select: auto;
+    pointer-events: auto;
+    -moz-user-select: auto;
+    -webkit-user-select: auto;
 }
 
 .sidebar.show .sidebar-content {
