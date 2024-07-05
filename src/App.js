@@ -4,6 +4,7 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import {PreferencesProvider, usePath} from "./components/hooks";
 import {configurationMetaTags, stored} from "./components/lib/utilities";
+import './components/ui/fonts';
 
 function App() {
     const path = usePath();

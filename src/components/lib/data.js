@@ -122,7 +122,8 @@ export const content = {
             }
         },
         alert: {
-            building: "This page is still under construction..."
+            building: "This page is still under construction...",
+            showing: "Currently showing the newest and most recently tested version."
         },
         copy_panel: {
             title: 'Testing copyToClipboard function',
@@ -232,7 +233,8 @@ export const content = {
             }
         },
         alert: {
-            building: "Bu sayfa henüz yapım aşamasındadır..."
+            building: "Bu sayfa henüz yapım aşamasındadır...",
+            showing: "Şu anda en yeni ve en son test edilen sürüm gösteriliyor."
         },
         copy_panel: {
             title: 'copyToClipboard fonksiyon testi',

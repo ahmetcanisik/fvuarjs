@@ -3,7 +3,12 @@ import UpdateNotes from './components/updateNotes';
 import TestArea from './components/testArea';
 import NotFound from './components/error';
 
-export function Home() {return (<Welcome />)}
+export function Home() {return (
+    <>
+        <Welcome />
+        <TestArea />
+    </>
+)}
 export function ChangeLog() {return (<UpdateNotes />)}
 export function Test() {return (<TestArea />)}
 export function Error() {return (<NotFound />);}

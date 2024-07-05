@@ -49,7 +49,7 @@ function Logo() {
                 <Image image={{src: "/logo192.png", width: "64", height: "64", alt: "fvuarJS"}}/>
             </a>
             <a href='/' target={path.pathname === '/' && '_blank'} className='logo-text'>
-                <span className='logo'>./fvuar<span className='js-text'>JS</span></span>
+                <span translate="no" className='logo'>&gt; fvuar<span translate="no" className='js-text'>JS</span></span>
                 <span className="mini-logo">{stored.cl.header.slogan}</span>
             </a>
         </hgroup>
