@@ -1,7 +1,7 @@
 {
   "name": "fvuarjs",
-  "version": "1.4.2",
-  "description": "create your alert messages!",
+  "version": "0.0.1",
+  "description": "Fast Visual User Alerts Resource",
   "main": "fvuar.min.js",
   "repository": {
     "type": "git",
@@ -25,15 +25,10 @@
     "copied",
     "copied",
     "clipboard",
-    "fvuar1.0",
-    "fvuar1.2",
-    "fvuar1.3",
-    "fvuar1.4",
-    "fvuar1.4.1",
-    "fvuar1.4.2"
+    "fvuar0.0.1"
   ],
   "author": "ahmetcanisik <can.isik.business@gmail.com> (https://ahmetcanisik.com)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ahmetcanisik/fvuarJS/issues"
   },
