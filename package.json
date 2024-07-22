@@ -1,6 +1,6 @@
 {
   "name": "fvuarjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fast Visual User Alerts Resource",
   "main": "fvuar.min.js",
   "repository": {

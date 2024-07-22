@@ -2,15 +2,15 @@
     <image src="./banner.webp" width="192" height="192" alt="fvuarjs" />
 </div>
 
-# `fvuarJS v1.4.2`
+# `fvuarJS v0.0.1`
 Create your alert messages with fvuarJS!
 
 <br><br>
 
 ### This is an example of the alert messages you created with us:
 ```javascript
-const create = new feJS()
-create.newAlert({
+const fv = new fvuar()
+fv.new({
     text: "This is alert without taking advantage of fvuarJS.",
 })
 ```
@@ -23,14 +23,14 @@ create.newAlert({
 
 #### Copy this script and paste your html file.
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/fvuarjs@1.4.2/fvuar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fvuarjs@0.0.1/fvuar.min.js"></script>
 ```
 
 <br><br>
 
 ## Examples
 
-### The use of copiedClipboard() function is as in the example below:
+### The use of copy() function is as in the example below:
 
 ##### index.html
 ```html
@@ -38,21 +38,19 @@ create.newAlert({
 <html lang="en">
     <head>
         <!-- ... -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fvuarjs@1.4.2/fvuar.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/fvuarjs@0.0.1/fvuar.min.js"></script>
     </head>
     <body>
         <button type="button" id="copy">Copy clipboard</button>
         <script>
-            const create = new feJS();
+            const fv = new fvuar();
             const copyBtn = document.getElementById('copy');
 
             copyBtn.addEventListener('click', () => {
-                create.copiedClipboard({
-                    target: copyBtn, // copies the text in the given target or you can also give the element id, for example: '#copy'.
+                fv.copy(copyBtn, true, {
                     text: 'Copied!', // The text to display on the alert.
-                    type: 'success', // Alert theme, this could also be one of these: error, orange, info, default, warning
+                    theme: 'success', // Alert theme, this could also be one of these: error, orange, info, default, warning
                     position: 'top-center', // The alert location will be displayed at the top and far right of the page.
-                    closeButtonText: 'done', // The text that will appear on the button that closes the alert.
                     time: 3 // Alert's existence time.
                 });
             });
@@ -64,10 +62,10 @@ create.newAlert({
 
 <br><br>
 
-| Functions | Parameters | Details |
-| ----------| ------------- | -------- |
-| `newAlert()` | `type`, `text`, `position`, `closeButtonText`, `time` | - `type`: You can determine the theme of your alert by choosing one of the following types: success, default, error, orange, info, warning. <br> - `text`: The articles you want to appear in the alert will be located here. <br> - `position`: top-left, top-center, top-right, center-left, center, center-right, bottom-left, bottom-center, bottom-right <br> - `closeButtonText`: You can specify the text to be written on the button that terminates your alert. <br> - `time`: You can specify the survival time of your alert (the value in seconds you enter, after which the alert will disappear). |
-| `copiedClipboard()` | `target`, `type`, `text`, `position`,`closeButtonText`, `time` | - `target`: hedefin kendisini veya id sini verdiğiniz takdirde fonksiyon gidip o hedeflenen elementin içerisindeki metni kopyalar. <br> - `type`: You can determine the theme of your alert by choosing one of the following types: success, default, error, orange, info, warning. <br> - `text`: The articles you want to appear in the alert will be located here. <br>  - `position`: top-left, top-center, top-right, center-left, center, center-right, bottom-left, bottom-center, bottom-right <br> - `closeButtonText`: You can specify the text to be written on the button that terminates your alert. <br> - `time`: You can specify the survival time of your alert (the value in seconds you enter, after which the alert will disappear). |
+| Functions | Parameters                                           | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|-----------|------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `new()`   | `theme`, `text`, `position`, `time`, `css`           | - `theme`: You can determine the theme of your alert by choosing one of the following types: success, default, error, orange, info, warning. <br> - `text`: The articles you want to appear in the alert will be located here. <br> - `position`: top-left, top-center, top-right, center-left, center, center-right, bottom-left, bottom-center, bottom-right <br> - `time`: You can specify the survival time of your alert (the value in seconds you enter, after which the alert will disappear). <br> - `css`: add custom css.                                                                                                                                          |
+| `copy()`  | `target`, `theme`, `text`, `position`, `time`, `css` | - `target`: hedefin kendisini veya id sini verdiğiniz takdirde fonksiyon gidip o hedeflenen elementin içerisindeki metni kopyalar. <br> - `theme`: You can determine the theme of your alert by choosing one of the following types: success, default, error, orange, info, warning. <br> - `text`: The articles you want to appear in the alert will be located here. <br>  - `position`: top-left, top-center, top-right, center-left, center, center-right, bottom-left, bottom-center, bottom-right <br> - `time`: You can specify the survival time of your alert (the value in seconds you enter, after which the alert will disappear). <br> - `css`: add custom css. |
 
 <br><br>
 
