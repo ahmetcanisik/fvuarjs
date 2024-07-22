@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing version 1.5</title>
+    <script src="./fvuar.min.js"></script>
+    <style>
+        body {
+            min-height: 200vh;
+            background-color: white;
+            color: black;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: black;
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="button-group">
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+</div>
+<hr>
+<span id="text1">alert=false</span>
+<button id="alertFalse">copy to text</button>
+<br>
+<hr>
+<span id="text2">alert=true</span>
+<button id="alertTrue">copy to text</button>
+<script>
+    const fv = new fvuar({
+        maxCount: 9,
+        maxTime: 2000,
+        defaultTime: 10,
+        cpAlert: true,
+        closeMethod: "click"
+    });
+    const pos = ["top-left", "top-center", "top-right", "center-left", "center", "center-right", "bottom-left", "bottom-center", "bottom-right"]
+    const skins = ["default", "success", "warning", "info", "error", "orange"];
+    const allButtons = document.querySelectorAll(".button-group button");
+    allButtons.forEach((btn, i) => {
+        let color = skins[Math.floor(Math.random() * skins.length)];
+        let location = pos[i];
+        btn.innerHTML = location + " + " + color;
+        btn.addEventListener("click", () => fv.new({text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit?", displayTime: 2000, position: location, theme: color}));
+    })
+
+    fv.new({
+        text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit?",
+        position: "top-right",
+        theme: "success",
+        displayTime: 2000,
+        css: {
+            backgroundColor: '#6ee7b7',
+            color: "green"
+        }
+    })
+
+    const alertFalse = document.getElementById("alertFalse");
+    alertFalse.addEventListener("click", () => {
+        fv.copy("#text1", false)
+    })
+
+    const alertTrue = document.getElementById("alertTrue");
+    alertTrue.addEventListener("click", () => {
+        fv.copy("#text2", true, {
+            displayTime: 2000
+        })
+    })
+</script>
+</body>
+</html>
