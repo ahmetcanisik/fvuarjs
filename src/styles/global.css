@@ -59,7 +59,8 @@ h3 {
 }
 
 .outbox,
-.welcome {
+.welcome,
+.readme {
     width: 800px;
     display: flex;
     margin: 0 auto;
@@ -435,8 +436,15 @@ nav .navbar li a {
     border: 1px solid var(--orange-8);
 }
 
-.welcome-title {
+.welcome {
     font-family: 'Ubuntu Title', -apple-system, system-ui, 'Ubuntu', BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    .welcome-slogan {
+        font-weight: lighter;
+        color: var(--slate-7);
+    }
+}
+
+.welcome-title {
     font-size: 94px;
     margin: 0;
     font-weight: 800;

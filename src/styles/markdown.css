@@ -1,0 +1,32 @@
+code, pre {
+    width: 100%;
+}
+
+.readme {
+    text-align: start;
+    h1,h2,h3,h4,h5,h6 {
+        width: 100%;
+        text-align: start;
+    }
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    background-color: transparent; /* Change the background-color of table here */
+    text-align: left; /* Change the text-alignment of table here */
+}
+
+th {
+    font-weight: bold;
+    border: 1px solid #cccccc; /* Change the border-color of heading here */
+    padding: 8px;
+}
+
+td {
+    border: 1px solid #cccccc; /* Change the border-color of cells here */
+    padding: 8px;
+}

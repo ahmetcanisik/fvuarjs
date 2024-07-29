@@ -2,11 +2,12 @@ import Welcome from './components/welcome';
 import UpdateNotes from './components/updateNotes';
 import TestArea from './components/testArea';
 import NotFound from './components/error';
+import Readme from './components/readme';
 
 export function Home() {return (
     <>
         <Welcome />
-        <TestArea />
+        <Readme />
     </>
 )}
 export function ChangeLog() {return (<UpdateNotes />)}
