@@ -1,7 +1,6 @@
 import { stored, Icon } from './lib/utilities';
 import { content } from './lib/data';
 import Image from './image';
-import { Tooltip } from "react-tooltip";
 import { useRef, useState, useEffect } from "react";
 import { useUpdatePreferences, usePreferences } from "./hooks";
 
@@ -62,10 +61,8 @@ function NavBar({ className }) {
         <nav className={className}>
             <ul className="navbar">
                 { className && <h3 className='text-left'><Icon icon="document" /> {stored.cl.header.menu.title}</h3> }
-                <li><a href='/test' data-tooltip-id={"testPageTooltip"+className} data-tooltip-content={stored.cl.header.menu.button.test} className={`btn${path.pathname === "/test" ? '-active' : ''}`}>{stored.cl.header.menu.button.test}</a></li>
-                <li><a href='/update-notes' data-tooltip-id={"updateNotesPageTooltip"+className} data-tooltip-content={stored.cl.header.menu.button.notes} className={`btn${path.pathname === "/update-notes" ? '-active' : ''}`}>{stored.cl.header.menu.button.notes}</a></li>
-                <Tooltip id={"testPageTooltip"+className} />
-                <Tooltip id={"updateNotesPageTooltip"+className} />
+                <li><a href='/test' className={`btn${path.pathname === "/test" ? '-active' : ''}`}>{stored.cl.header.menu.button.test}</a></li>
+                <li><a href='/update-notes' className={`btn${path.pathname === "/update-notes" ? '-active' : ''}`}>{stored.cl.header.menu.button.notes}</a></li>
             </ul>
         </nav>
     );

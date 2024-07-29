@@ -16,11 +16,11 @@ export default function TestArea() {
 
 function CopyPanel() {
     const copy = () => {
-        fv.copiedClipboard({
-            target: '#testInp',
-            type: "success",
-            time: 4,
-            position: "top-right"
+        fv.copy('#testInp',true, {
+            theme: "success",
+            text: "Copied!",
+            displayTime: 4,
+            position: "bottom-center"
         })
     }
 
@@ -46,10 +46,10 @@ function BtnPanel() {
                 {
                     themeButtons.map((button, i) => (
                         <li key={i}>
-                            <button type="button" className={`btn ${button.type}`} onClick={() => fv.newAlert({
-                                type: button.type,
+                            <button type="button" className={`btn ${button.type}`} onClick={() => fv.new({
+                                theme: button.type,
                                 text: button.text,
-                                time: button.time,
+                                displayTime: button.time,
                                 position: button.position
                             })}>{button.type}</button>
                         </li>
@@ -69,11 +69,11 @@ function PosPanel() {
                 {
                     posX.map((pos, i) => (
                         <li key={i}>
-                            <button type="button" className="btn success" onClick={() => fv.newAlert({
-                                type: "success",
+                            <button type="button" className="btn success" onClick={() => fv.new({
+                                theme: "success",
                                 text: pos.replace('-', ' '),
                                 position: pos,
-                                time: 4
+                                displayTime: 4
                             })}>{pos.replace('-', ' ')}</button>
                         </li>
                     ))

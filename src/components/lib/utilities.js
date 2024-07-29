@@ -1,7 +1,7 @@
-import feJS from 'fvuarjs';
+import Fvuar from 'fvuarjs';
 import { content, preferences } from './data';
 
-export const fv =  new feJS();
+export const fv =  new Fvuar();
 
 export const stored = {
     lang: preferences.lang || "en-US",

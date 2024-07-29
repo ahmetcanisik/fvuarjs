@@ -55,9 +55,10 @@ export const content = {
             icon: "🇹🇷"
         }
     ],
-    version: "1.4.3",
+    version: "0.0.5",
     "en-US": {
         title: "Version",
+        long_name: "Fast Visual User Alerts Resource",
         header: {
             title: "Documentation",
             preferences: "Preferences",
@@ -144,20 +145,41 @@ export const content = {
             version: [
                 {
                     test: true,
-                    v: "1.4.3",
+                    v: "0.0.5",
                     list: [
                         "minor bugs fixed"
                     ]
                 },
                 {
                     test: false,
-                    v: "1.4",
+                    v: "0.0.4",
                     list: [
                         "Target attribute was added to the copyToClipboard function, it contains both the id and the element itself. The opportunity to copy content is provided by specifying.",
                         "Fixed minor errors that occurred during copying.",
                         "An animation (shake) has been added to the existence of alerts.",
                         "Alerts colors and sizes have been rearranged to give them a more modernized look.",
                         "It is now possible to change the maximum time that the alert will remain on the screen (maxTime) and the maximum number of alerts that will appear on the screen (maxCount)."
+                    ]
+                },
+                {
+                    test: false,
+                    v: "0.0.3",
+                    list: [
+                        "minor bugs fixed"
+                    ]
+                },
+                {
+                    test: false,
+                    v: "0.0.2",
+                    list: [
+                        "minor bugs fixed"
+                    ]
+                },
+                {
+                    test: false,
+                    v: "0.0.1",
+                    list: [
+                        "Etkileşimli uyarı mesajları eklendi."
                     ]
                 }
             ]
@@ -169,6 +191,7 @@ export const content = {
     },
     "tr-TR": {
         title: "Versiyon",
+        long_name: "Aşırı Hızlı, Gösterişli Uyarı Mesajları",
         header: {
             title: "Dökümentasyon",
             preferences: "Tercihler",
@@ -255,20 +278,41 @@ export const content = {
             version: [
                 {
                     test: true,
-                    v: "1.4.3",
+                    v: "0.0.5",
                     list: [
                         "küçük hatalar düzeltildi"
                     ]
                 },
                 {
                     test: false,
-                    v: "1.4",
+                    v: "0.0.4",
                     list: [
                         "CopyToClipboard işlevine Target özelliği eklendi; hem kimliği hem de öğenin kendisini içerir. İçeriğin kopyalanma imkanı belirtilerek sağlanır.",
                         "Kopyalama sırasında oluşan küçük hatalar düzeltildi.",
                         "Uyarıların varlığına animasyon (sallama) eklendi.",
                         "Uyarıların renkleri ve boyutları, onlara daha modern bir görünüm kazandırmak için yeniden düzenlendi.",
                         "Artık uyarının ekranda kalacağı maksimum süreyi (maxTime) ve ekranda görünecek maksimum uyarı sayısını (maxCount) değiştirmek mümkün."
+                    ]
+                },
+                {
+                    test: false,
+                    v: "0.0.3",
+                    list: [
+                        "küçük hatalar düzeltildi"
+                    ]
+                },
+                {
+                    test: false,
+                    v: "0.0.2",
+                    list: [
+                        "küçük hatalar düzeltildi"
+                    ]
+                },
+                {
+                    test: false,
+                    v: "0.0.1",
+                    list: [
+                        "Etkileşime geçilebilir uyarı mesajları eklendi."
                     ]
                 }
             ]
