@@ -1,17 +1,17 @@
 {
   "name": "fvuarjs",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Fast Visual User Alerts Resource",
-  "main": "fvuar.min.js",
+  "main": "fvuar.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ahmetcanisik/fvuarjs.git"
   },
   "files": [
-    "fvuar.js",
-    "fvuar.min.js",
-    "LICENSE",
-    "README.md"
+    "./fvuar.js",
+    "./fvuar.min.js",
+    "../LICENSE",
+    "../README.md"
   ],
   "keywords": [
     "fvuar",
@@ -25,7 +25,9 @@
     "copied",
     "copied",
     "clipboard",
-    "fvuar0.0.1"
+    "fvuar0.0.1",
+    "fvuar0.0.2",
+    "fvuar0.0.3"
   ],
   "author": "ahmetcanisik <imcanisik@gmail.com> (https://ahmetcanisik.com)",
   "license": "MIT",

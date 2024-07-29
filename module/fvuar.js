@@ -18,7 +18,7 @@ class Fvuar {
         cpAlert = false,
         alertOffset = 70,
         closeMethod = "click",
-        hoverToTop = false,
+        hoverToTop = true,
         clickToClose = true,
         multiply = false
     } = {}) {
@@ -724,3 +724,5 @@ class Fvuar {
         }
     }
 }
+
+module.exports=Fvuar;

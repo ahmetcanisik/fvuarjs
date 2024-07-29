@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Testing version 1.5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing version 0.0.3</title>
     <script src="./fvuar.min.js"></script>
     <style>
         body {
             min-height: 200vh;
             background-color: white;
             color: black;
+        }
+        .button-group {
+            min-width: 300px;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
         }
         @media (prefers-color-scheme: dark) {
             body {
@@ -19,32 +26,40 @@
     </style>
 </head>
 <body>
-<div class="button-group">
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
+<div class="container">
+    <div class="button-group">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </div>
+    <hr>
+    <span id="text1">alert=false</span>
+    <button id="alertFalse">copy to text</button>
+    <br>
+    <hr>
+    <span id="text2">alert=true</span>
+    <button id="alertTrue">copy to text</button>
+    <hr>
+    <button id="likeButton">beğen</button>
 </div>
-<hr>
-<span id="text1">alert=false</span>
-<button id="alertFalse">copy to text</button>
-<br>
-<hr>
-<span id="text2">alert=true</span>
-<button id="alertTrue">copy to text</button>
 <script>
-    const fv = new fvuar({
-        maxCount: 9,
-        maxTime: 2000,
-        defaultTime: 10,
-        cpAlert: true,
-        closeMethod: "click"
-    });
+    const fv = new Fvuar();
+
+    fv.new({
+        text: `kazandınız <a href="https://github.com/ahmetcanisik" target="_blank">github</a>`,
+        theme: "success",
+        clickToClose: false,
+        css: {
+            textDecoration: "none"
+        }
+    })
+
     const pos = ["top-left", "top-center", "top-right", "center-left", "center", "center-right", "bottom-left", "bottom-center", "bottom-right"]
     const skins = ["default", "success", "warning", "info", "error", "orange"];
     const allButtons = document.querySelectorAll(".button-group button");
@@ -52,18 +67,25 @@
         let color = skins[Math.floor(Math.random() * skins.length)];
         let location = pos[i];
         btn.innerHTML = location + " + " + color;
-        btn.addEventListener("click", () => fv.new({text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit?", displayTime: 2000, position: location, theme: color}));
+        btn.addEventListener("click", () => fv.new({text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit?", displayTime: 4, position: location, theme: color}));
     })
 
-    fv.new({
-        text:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit?",
-        position: "top-right",
-        theme: "success",
-        displayTime: 2000,
-        css: {
-            backgroundColor: '#6ee7b7',
-            color: "green"
-        }
+    console.log(fv)
+
+
+    document.getElementById("likeButton").addEventListener("click", () => {
+        fv.new({
+            text:"Bu filmi değerlendirdin. Yeter arkadaş iliğimizi kemiğimizi kuruttun.",
+            position: "top-center",
+            theme: "success",
+            displayTime: 4,
+            css: {
+                backgroundColor: '#db2424',
+                color: "white",
+                borderColor: "black",
+                fontWeight: "100"
+            }
+        })
     })
 
     const alertFalse = document.getElementById("alertFalse");
@@ -74,7 +96,7 @@
     const alertTrue = document.getElementById("alertTrue");
     alertTrue.addEventListener("click", () => {
         fv.copy("#text2", true, {
-            displayTime: 2000
+            displayTime: 4
         })
     })
 </script>

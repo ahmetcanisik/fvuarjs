@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fvuarjs color palette</title>
+    <style>
+        :root {
+            --default-bg: #ffffff;
+            --default-fg: #020617;
+            --default-b: #475569;
+            --success-bg: #6ee7b7;
+            --success-fg: #134d14;
+            --success-b: #134d14;
+            --info-bg: #38bdf8;
+            --info-fg: #0e214d;
+            --info-b: #0e214d;
+            --error-bg: #e66a6a;
+            --error-fg: #450a0a;
+            --error-b: #450a0a;
+            --warning-bg: #f0d465;
+            --warning-fg: #422006;
+            --warning-b: #422006;
+            --orange-bg: #ff9020;
+            --orange-fg: #5a1801;
+            --orange-b: #5a1801;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --default-bg: #ffffff;
+                --default-fg: #020617;
+                --default-b: #475569;
+                --success-bg: #6ee7b7;
+                --success-fg: #134d14;
+                --success-b: #134d14;
+                --info-bg: #38bdf8;
+                --info-fg: #0e214d;
+                --info-b: #0e214d;
+                --error-bg: #e66a6a;
+                --error-fg: #450a0a;
+                --error-b: #450a0a;
+                --warning-bg: #f0d465;
+                --warning-fg: #422006;
+                --warning-b: #422006;
+                --orange-bg: #ff9020;
+                --orange-fg: #5a1801;
+                --orange-b: #5a1801;
+            }
+        }
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        .button-palette {
+            max-width: 200px;
+            gap: 20px;
+            display: grid;
+            place-items: center;
+        }
+
+        .palette {
+            width: 100%;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: large;
+            outline: 1px solid black;
+            border-bottom: 8px solid black;
+            border-radius: 8px;
+        }
+        .default {
+            background-color: var(--default-bg);
+            color: var(--default-fg);
+            border-color: var(--default-b);
+            outline-color: var(--default-b);
+        }
+        .success {
+            background-color: var(--success-bg);
+            color: var(--success-fg);
+            border-color: var(--success-b);
+            outline-color: var(--default-b);
+        }
+        .info {
+            background-color: var(--info-bg);
+            color: var(--info-fg);
+            border-color: var(--info-b);
+            outline-color: var(--default-b);
+        }
+        .error {
+            background-color: var(--error-bg);
+            color: var(--error-fg);
+            border-color: var(--error-b);
+            outline-color: var(--default-b);
+        }
+        .warning {
+            background-color: var(--warning-bg);
+            color: var(--warning-fg);
+            border-color: var(--warning-b);
+            outline-color: var(--default-b);
+        }
+        .orange {
+            background-color: var(--orange-bg);
+            color: var(--orange-fg);
+            border-color: var(--orange-b);
+            outline-color: var(--default-b);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-palette">
+        <button class="palette default">default</button>
+        <button class="palette success">success</button>
+        <button class="palette info">info</button>
+        <button class="palette error">error</button>
+        <button class="palette warning">warning</button>
+        <button class="palette orange">orange</button>
+    </div>
+</body>
+
+</html>
