@@ -1,7 +1,9 @@
 import Fvuar from 'fvuarjs';
 import { content, preferences } from './data';
 
-export const fv =  new Fvuar();
+export const fv =  new Fvuar({
+    multiply: true
+});
 
 export const stored = {
     lang: preferences.lang || "en-US",
@@ -15,6 +17,7 @@ if (stored.theme !== 'system') {
 } else {
     document.documentElement.removeAttribute("data-theme");
 }
+
 document.documentElement.lang = stored.lang.split('-')[0];
 document.querySelector('title').innerText = `${stored.cl.header.title} v${content.version} | fvuarJS`;
 
@@ -47,8 +50,23 @@ export function Icon({ icon, width = "24", height = "24" }) {
 
 export function configurationMetaTags({title = "fvuar.js.org", description = "Simple, Fast and Modern Alert Library"}) {
     const titleTag = document.querySelector('title');
-    const descriptionTag = document.querySelector('meta[name="description"]');
+    const twitterTitleTag = document.querySelector("meta[name='twitter:title']");
+    const ogTitleTag = document.querySelector("meta[property='og:title']");
 
-    titleTag.innerText = title + " | " + content.project_name;
-    descriptionTag.content = description + " | " + content.project_name;
+    const descriptionTag = document.querySelector('meta[name="description"]');
+    const twitterDescriptionTag = document.querySelector("meta[name='twitter:description']");
+    const ogDescriptionTag = document.querySelector("meta[property='og:description']");
+
+    const metas = {
+        title: title + " | " + content.project_name,
+        description: description + " | " + content.project_name,
+    }
+
+    titleTag.innerText = metas.title;
+    twitterTitleTag.content = metas.title;
+    ogTitleTag.content = metas.title;
+
+    descriptionTag.content = metas.description;
+    twitterDescriptionTag.content = metas.description;
+    ogDescriptionTag.content = metas.description;
 }

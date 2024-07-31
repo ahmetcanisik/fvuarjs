@@ -22,14 +22,28 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu Sans' ,-apple-system, system-ui, 'Ubuntu', BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--slate-1);
-    color: var(--slate-11);
+    background-color: var(--slate-50);
+    color: var(--slate-950);
     overflow-x: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: x-large;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.showcase {
+    color: var(--slate-100);
+    * {
+        color: var(--slate-700);
+    }
 }
 
 h1,
 h3 {
-    color: var(--slate-11);
+    color: var(--slate-950);
     text-align: center;
 }
 
@@ -39,12 +53,14 @@ h3 {
     justify-content: space-evenly;
     align-items: center;
 }
+
 .row h3 {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .row select {
     width: 50%;
 }
@@ -61,7 +77,7 @@ h3 {
 .outbox,
 .welcome,
 .readme {
-    width: 800px;
+    width: 1200px;
     display: flex;
     margin: 0 auto;
     flex-direction: column;
@@ -70,18 +86,19 @@ h3 {
 }
 
 .header {
+    font-size: large;
+    background: transparent;
+    backdrop-filter: blur(8px);
     position: sticky !important;
     width: 100%;
-    background-color: var(--slate-2);
     box-shadow: 0 1px 3px 0 var(--shadow), 0 1px 2px -1px var(--shadow);
 }
 
 .bar {
-    width: 800px;
-    padding: 4px 0;
+    width: 1200px;
+    padding: 20px 0;
     border-radius: 4px;
     display: flex;
-    margin: 0 auto;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -89,6 +106,7 @@ h3 {
     -moz-user-select: none;
     -webkit-user-select: none;
 }
+
 .bar hgroup {
     display: flex;
     align-items: center;
@@ -101,34 +119,35 @@ h3 {
     font-family: 'Ubuntu Title', -apple-system, system-ui, 'Ubuntu', BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    cursor: pointer;
 }
+
 .bar hgroup .logo-text .logo {
-    font-size: x-large;
+    font-size: xxx-large;
     font-weight: 900;
-    color: var(--logo);
+    color: var(--slate-500);
 }
+
 .bar hgroup .logo-text .mini-logo {
-    font-size: small;
+    font-size: large;
     font-weight: lighter;
-    color: var(--slate-7);
+    color: var(--slate-600);
+    opacity: 50%;
 }
+
 .bar hgroup .logo-text .logos img {
-    cursor: pointer;
+    cursor: var(--cursor-pointer), pointer;
 }
 
 .js-text {
     color: var(--js);
 }
 
-
-
 .openLangDialog {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2px;
-    border: 1px solid var(--slate-11);
+    border: 1px solid var(--slate-950);
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
@@ -154,6 +173,7 @@ h3 {
     gap: 10px;
     width: 100%;
 }
+
 .panel ul li button {
     width: 100%;
     text-align: center;
@@ -179,12 +199,14 @@ h3 {
     justify-content: center;
     align-items: center;
 }
+
 .copyPanel input {
     width: 60%;
 }
+
 .copyPanel button {
     width: 40%;
-    border: 1px solid var(--slate-11);
+    border: 1px solid var(--slate-950);
 }
 
 .posPanel {
@@ -214,13 +236,33 @@ fieldset legend {
     gap: 5px;
 }
 
+select {
+    option {
+        font-size: large;
+        cursor: var(--cursor-pointer), pointer;
+        border-radius: 4px;
+        padding: 5px;
+        margin: 10px 0;
+        &:hover {
+            background-color: var(--blue-500);
+            color: #f8fafc;
+        }
+        &:active, &:focus, &:checked {
+            background-color: var(--blue-500);
+            outline: 2px solid var(--sky-800);
+            outline-offset: 1px;
+            color: #f8fafc;
+        }
+    }
+}
+
 .inp {
-    background-color: var(--blue-1);
-    color: var(--blue-11);
+    background-color: var(--blue-50);
+    color: var(--blue-950);
     outline: none;
-    cursor: pointer;
+    cursor: var(--cursor-pointer), pointer;
     border-radius: 4px;
-    border: 1px solid var(--blue-11);
+    border: 1px solid var(--blue-600);
     padding: 10px 20px;
 
     &:hover,
@@ -228,95 +270,124 @@ fieldset legend {
     &:active,
     &:focus {
         outline-offset: 2px;
-        border: 1px solid var(--blue-9);
-        outline: 2px solid var(--blue-5);
+        border: 1px solid var(--blue-800);
+        outline: 2px solid var(--blue-400);
+    }
+}
+
+.version {
+    background-color: var(--slate-50);
+    color: var(--slate-950);
+    outline: none;
+    cursor: var(--cursor-pointer), pointer;
+    border-radius: 16px 0 16px 0;
+    border: 1px solid var(--slate-600);
+    padding: 10px 20px;
+
+    option {
+        border-radius: 4px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus {
+        outline-offset: 2px;
+        border: 1px solid var(--slate-800);
+        outline: 2px solid var(--slate-400);
     }
 }
 
 .btn {
-    background-color: var(--slate-1);
-    color: var(--slate-11);
+    background-color: var(--slate-50);
+    color: var(--slate-950);
     outline: none;
-    cursor: pointer;
+    cursor: var(--cursor-pointer), pointer;
     border-radius: 4px;
     padding: 10px 20px;
-    border-bottom: 1px solid var(--slate-11);
+    border-bottom: 1px solid var(--slate-950);
 
     &:hover,
     &:focus,
     &:active {
         outline-offset: 2px;
-        outline: 2px solid var(--slate-11);
+        outline: 2px solid var(--slate-950);
+        cursor: var(--cursor-pointer), pointer;
     }
 }
 
+.nav-button {
+    outline: 1px solid var(--slate-950);
+}
+
 .btn-active {
-    background-color: var(--slate-1);
-    color: var(--orange-8);
-    outline: none;
+    background-color: var(--slate-50);
+    color: var(--orange-700);
+    outline: 1px solid var(--orange-700);
     font-weight: 500;
-    cursor: pointer;
+    cursor: var(--cursor-pointer), pointer;
     border-radius: 4px;
     padding: 10px 20px;
-    border-bottom: 1px solid var(--orange-8);
+    border-bottom: 1px solid var(--orange-700);
 
     &:hover,
     &:focus,
     &:active {
         outline-offset: 2px;
         outline: 2px solid var(--logo);
+        cursor: var(--cursor-pointer), pointer;
     }
 }
 
 .default {
-    background-color: var(--slate-bg);
-    color: var(--slate-fg);
-    border: 1px solid var(--slate-11);
+    background-color: var(--slate-100);
+    color: var(--slate-950);
+    border: 1px solid var(--slate-950);
 
     &:hover,
     &:focus,
     &:active {
         outline-offset: 2px;
-        outline: 2px solid var(--slate-11);
+        outline: 2px solid var(--slate-950);
     }
 }
 
 .success {
-    background-color: var(--green-fg);
-    color: var(--green-bg);
-    border: 1px solid var(--green-6);
+    background-color: var(--green-300);
+    color: var(--green-950);
+    border: 1px solid var(--green-950);
 
     &:hover,
     &:focus,
     &:active {
         outline-offset: 2px;
-        outline: 2px solid var(--green-7);
+        outline: 2px solid var(--green-950);
     }
 }
 
 .warning {
-    background-color: var(--yellow-bg);
-    color: var(--yellow-fg);
-    border: 1px solid var(--yellow-6);
+    background-color: var(--yellow-400);
+    color: var(--yellow-950);
+    border: 1px solid var(--yellow-950);
 
     &:hover,
     &:focus,
     &:active {
         outline-offset: 2px;
-        outline: 2px solid var(--yellow-7);
+        outline: 2px solid var(--yellow-950);
     }
 }
 
 .error {
-    background-color: var(--red-b);
-    color: var(--red-bg);
-    border: 1px solid var(--red-6);
+    background-color: var(--red-500);
+    color: var(--red-950);
+    border: 1px solid var(--red-950);
 
     &:hover,
     &:focus,
     &:active {
         outline-offset: 2px;
-        outline: 2px solid var(--red-7);
+        outline: 2px solid var(--red-950);
     }
 }
 
@@ -325,9 +396,9 @@ fieldset legend {
     justify-content: center;
     min-width: 100%;
     text-align: center;
-    background-color: var(--red-5);
-    color: var(--red-11);
-    border: 1px solid var(--red-5);
+    background-color: var(--red-400);
+    color: var(--red-950);
+    border: 1px solid var(--red-950);
     font-weight: 600;
     font-size: large;
 
@@ -335,33 +406,33 @@ fieldset legend {
     &:focus,
     &:active {
         outline-offset: 2px;
-        outline: 2px solid var(--red-6);
+        outline: 2px solid var(--red-950);
     }
 }
 
 .info {
-    background-color: var(--blue-fg);
-    color: var(--blue-bg);
-    border: 1px solid var(--blue-6);
+    background-color: var(--blue-950);
+    color: var(--blue-500);
+    border: 1px solid var(--blue-950);
 
     &:hover,
     &:focus,
     &:active {
         outline-offset: 2px;
-        outline: 2px solid var(--blue-7);
+        outline: 2px solid var(--blue-950);
     }
 }
 
 .orange {
-    background-color: var(--orange-fg);
-    color: var(--orange-bg);
-    border: 1px solid var(--orange-6);
+    background-color: var(--orange-950);
+    color: var(--orange-500);
+    border: 1px solid var(--orange-500);
 
     &:hover,
     &:focus,
     &:active {
         outline-offset: 2px;
-        outline: 2px solid var(--orange-7);
+        outline: 2px solid var(--orange-950);
     }
 }
 
@@ -369,14 +440,14 @@ dialog {
     flex-direction: column;
     width: calc(100% / 4);
     gap: 10px;
-    background-color: var(--slate-2);
-    color: var(--slate-10);
+    background-color: var(--slate-100);
+    color: var(--slate-500);
     border-radius: 16px;
 }
 
 dialog select {
-    background-color: var(--slate-3);
-    color: var(--slate-9);
+    background-color: var(--slate-200);
+    color: var(--slate-800);
     font-size: large;
 }
 
@@ -390,9 +461,16 @@ ol {
     gap: 5px;
 }
 
-nav {
+.menus {
+    width: calc(100% / 1.5);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+nav {
+    width: calc(100% / 1.5);
+    display: flex;
     align-items: center;
 }
 
@@ -400,7 +478,6 @@ nav .navbar {
     padding: 0;
     width: 100%;
     display: grid;
-    justify-content: center;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
     list-style-type: none;
@@ -430,28 +507,30 @@ nav .navbar li a {
 }
 
 .mobile-bar ul li .btn {
-    border: 1px solid var(--slate-11);
+    border: 1px solid var(--slate-950);
 }
+
 .mobile-bar ul li .btn-active {
-    border: 1px solid var(--orange-8);
+    border: 1px solid var(--orange-700);
 }
 
 .welcome {
     font-family: 'Ubuntu Title', -apple-system, system-ui, 'Ubuntu', BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--slate-200);
     .welcome-slogan {
         font-weight: lighter;
-        color: var(--slate-7);
+        color: var(--slate-600);
     }
 }
 
 .welcome-title {
-    font-size: 94px;
+    font-size: 220px;
     margin: 0;
     font-weight: 800;
 }
 
 .welcome-logo {
-    color: var(--logo);
+    color: var(--slate-500);
 }
 
 .sidebar {
@@ -465,9 +544,9 @@ nav .navbar li a {
     left: 0;
     z-index: 100;
     background-color: transparent;
-    color: var(--slate-11);
+    color: var(--slate-950);
     transition: visibility 0.3s, opacity 0.3s, backdrop-filter 0.3s;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(1px);
     user-select: none;
     pointer-events: none;
     -moz-user-select: none;
@@ -481,10 +560,12 @@ nav .navbar li a {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: var(--slate-6);
+    background-color: var(--slate-500);
 }
 
 .sidebar-content {
+    display: flex;
+    flex-direction: column;
     width: 350px;
     opacity: 0;
     position: absolute;
@@ -492,9 +573,9 @@ nav .navbar li a {
     bottom: 0;
     right: -350px;
     left: auto;
-    background-color: transparent;
-    color: var(--slate-11);
-    outline: 4px solid var(--slate-4);
+    background-color: var(--slate-50);
+    color: var(--slate-200);
+    outline: 4px solid var(--slate-300);
     border-radius: 4px 0 0 4px;
     transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
@@ -513,6 +594,27 @@ nav .navbar li a {
     right: 0;
 }
 
+.row {
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.row select {
+    width: 100%;
+}
+
+.row h3 {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+
+}
+
 .close-sidebar {
     width: 100%;
     z-index: 102;
@@ -521,8 +623,11 @@ nav .navbar li a {
     align-items: center;
     top: 0;
     right: 0;
-    background-color: var(--red-5);
-    color: var(--red-11);
+    background-color: transparent;
+    color: var(--slate-50);
+    &:hover, &:focus, &:active {
+        outline-offset: -2px;
+    }
 }
 
 @media (max-width: 1024px) {

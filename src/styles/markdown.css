@@ -1,6 +1,15 @@
 code, pre {
     width: 100%;
 }
+pre {
+    * {
+        border-radius: 8px;
+    }
+}
+
+h2, pre {
+    margin: 40px 0;
+}
 
 .readme {
     text-align: start;
@@ -16,17 +25,27 @@ table {
     border-spacing: 0;
     border-collapse: collapse;
     margin-bottom: 15px;
-    background-color: transparent; /* Change the background-color of table here */
-    text-align: left; /* Change the text-alignment of table here */
+    background-color: var(--slate-50);
+    text-align: left;
+}
+
+table thead tr {
+    background-color: var(--slate-100);
 }
 
 th {
     font-weight: bold;
-    border: 1px solid #cccccc; /* Change the border-color of heading here */
+    border: 1px solid var(--slate-200);
     padding: 8px;
 }
 
 td {
-    border: 1px solid #cccccc; /* Change the border-color of cells here */
+    border: 1px solid var(--slate-200);
     padding: 8px;
+}
+
+@media (max-width: 360px) {
+    code, pre {
+        width: 100%;
+    }
 }

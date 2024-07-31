@@ -1,9 +1,5 @@
+import 'fvonts/ubuntu-title.css';
 const styles = `
-@font-face {
-    font-family: "Ubuntu Title";
-    src: url("${process.env.PUBLIC_URL}/fonts/Ubuntu-Title.ttf");
-}
-
 @font-face {
     font-family: "Ubuntu Sans";
     src: url("${process.env.PUBLIC_URL}/fonts/UbuntuSans.ttf");
