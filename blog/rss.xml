@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>fvuarjs Blog</title>
+        <link>https://fvuar.js.org/blog</link>
+        <description>fvuarjs Blog</description>
+        <lastBuildDate>Sun, 04 Aug 2024 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[What is Fvuarjs?]]></title>
+            <link>https://fvuar.js.org/blog/welcome</link>
+            <guid>https://fvuar.js.org/blog/welcome</guid>
+            <pubDate>Sun, 04 Aug 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is my first post on Fvuarjs.]]></description>
+            <content:encoded><![CDATA[<p>Fvuarjs is an alert message library.
+It contains customizable warning messages to be displayed to the user.
+It is very easy to use and has a structure that everyone from 7 to 70 can understand.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="can-you-give-a-simple-example">Can you give a simple example?<a class="hash-link" aria-label="Direct link to Can you give a simple example?" title="Direct link to Can you give a simple example?" href="https://fvuar.js.org/blog/welcome#can-you-give-a-simple-example">​</a></h2>
+<p>First of all, <a href="https://fvuar.js.org/docs/category/installation">Install fvuarjs in your project according to the instructions here.</a></p>
+<p>Then add the following lines to your javascript file to see the warning message.</p>
+<div class="language-jsx codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockTitle_Ktv7">script.js</div><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-jsx codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword module" style="color:#00009f">import</span><span class="token plain"> </span><span class="token imports maybe-class-name">Fvuar</span><span class="token plain"> </span><span class="token keyword module" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'fvuarjs'</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line theme-code-block-highlighted-line" style="color:#393A34"><span class="token plain"></span><span class="token maybe-class-name">Fvuar</span><span class="token punctuation" style="color:#393A34">.</span><span class="token method function property-access" style="color:#d73a49">new</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line theme-code-block-highlighted-line" style="color:#393A34"><span class="token plain">    </span><span class="token literal-property property" style="color:#36acaa">position</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"bottom-center"</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line theme-code-block-highlighted-line" style="color:#393A34"><span class="token plain">    </span><span class="token literal-property property" style="color:#36acaa">text</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"This warning message was created with fvuarjs!"</span><span class="token plain"></span><br></span><span class="token-line theme-code-block-highlighted-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>here is a usage example</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="check-out-our-documentation-for-more">Check out our <a href="https://fvuar.js.org/docs/intro">Documentation</a> for more<a class="hash-link" aria-label="Direct link to check-out-our-documentation-for-more" title="Direct link to check-out-our-documentation-for-more" href="https://fvuar.js.org/blog/welcome#check-out-our-documentation-for-more">​</a></h3>]]></content:encoded>
+            <category>What is Fvuarjs?</category>
+        </item>
+    </channel>
+</rss>

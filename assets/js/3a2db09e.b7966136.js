@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfvuarjs=self.webpackChunkfvuarjs||[]).push([[121],{8070:s=>{s.exports=JSON.parse('{"tags":[{"label":"What is Fvuarjs?","permalink":"/blog/tags/welcome","description":"Blog post explaining what Fvuarjs is.","count":1}]}')}}]);
