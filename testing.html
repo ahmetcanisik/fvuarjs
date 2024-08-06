@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing version 0.0.3</title>
-    <script src="./fvuar.min.js"></script>
+    <link rel="stylesheet" href="./styles/fvuar.min.css">
     <style>
         body {
             min-height: 200vh;
@@ -39,19 +39,17 @@
         <button></button>
     </div>
     <hr>
-    <span id="text1">alert=false</span>
-    <button id="alertFalse">copy to text</button>
-    <br>
-    <hr>
-    <span id="text2">alert=true</span>
-    <button id="alertTrue">copy to text</button>
-    <hr>
-    <button id="likeButton">beğen</button>
+    <button id="likeButton">like</button>
 </div>
+<script src="./fvuar.min.js"></script>
 <script>
-    const fv = new Fvuar();
+    Fvuar.configure({
+        MAXCOUNT: 20,
+        MAXTIME: 10,
+        DEFAULTTHEME: "error"
+    })
 
-    fv.new({
+    Fvuar.new({
         text: `kazandınız <a href="https://github.com/ahmetcanisik" target="_blank">github</a>`,
         theme: "success",
         clickToClose: false,
@@ -67,15 +65,12 @@
         let color = skins[Math.floor(Math.random() * skins.length)];
         let location = pos[i];
         btn.innerHTML = location + " + " + color;
-        btn.addEventListener("click", () => fv.new({text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit?", displayTime: 4, position: location, theme: color}));
+        btn.addEventListener("click", () => Fvuar.new({text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus libero vero? Debitis dolorem earum, numquam officia provident quo velit voluptate? Corporis delectus deleniti excepturi hic ipsam, non optio sit?", displayTime: 4, position: location, theme: color}));
     })
 
-    console.log(fv)
-
-
     document.getElementById("likeButton").addEventListener("click", () => {
-        fv.new({
-            text:"Bu filmi değerlendirdin. Yeter arkadaş iliğimizi kemiğimizi kuruttun.",
+        Fvuar.new({
+            text:"You rated this movie. Enough friend, you've dried us all dry.",
             position: "top-center",
             theme: "success",
             displayTime: 4,
@@ -85,18 +80,6 @@
                 borderColor: "black",
                 fontWeight: "100"
             }
-        })
-    })
-
-    const alertFalse = document.getElementById("alertFalse");
-    alertFalse.addEventListener("click", () => {
-        fv.copy("#text1", false)
-    })
-
-    const alertTrue = document.getElementById("alertTrue");
-    alertTrue.addEventListener("click", () => {
-        fv.copy("#text2", true, {
-            displayTime: 4
         })
     })
 </script>
