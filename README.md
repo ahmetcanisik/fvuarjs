@@ -1,11 +1,11 @@
-<div align="center">
-    <image src="./banner.webp" width="192" height="192" alt="fvuarjs" />
-</div>
-
 # `fvuarJS v0.0.4`
-Create your alert messages with fvuarJS!
+Create your alert messages with fvuarJS! 
 
-<br><br>
+<br>
+
+<image src="./static/img/logo.svg" style="border-radius: 16px" width="192" height="192" alt="fvuarjs" />
+
+<br>
 
 ### This is an example of the alert messages you created with us:
 ```javascript

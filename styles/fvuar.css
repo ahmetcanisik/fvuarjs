@@ -1,0 +1,243 @@
+/**
+ * @name                fvuarjs
+ * @version             0.0.5
+ * @author              ahmetcanisik
+ * @long_name           Fast Visual User Alerts Resource
+ * @description         Notification message library with a modern look for your project!
+ * @licence             MIT
+ */
+
+@import url("./theme/default.css");
+
+fv-alert {
+    z-index: 8669 !important;
+    pointer-events: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    width: 100%;
+    min-height: 100vh;
+    font-family: -apple-system,system-ui,'Ubuntu',BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif ;
+    background: transparent;
+    transition: visibility 0.3s, opacity 0.3s, backdrop-filter 0.3s;
+}
+
+fv-text {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+fv-container {
+    position: fixed;
+    min-width: 20%;
+    max-width: 20%;
+    z-index: 9998;
+    display: flex;
+    justify-content: space-between;
+    outline: 1px solid #000;
+    border-bottom: 8px solid var(--fvuar-alert-border-colors);
+    visibility: visible;
+    opacity: 1;
+    border-radius: 8px;
+    pointer-events: auto;
+    user-select: auto;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    cursor: pointer;
+    font-weight: 500;
+    background: white;
+    padding: 10px;
+    &:hover {
+        outline-width: 2px;
+    }
+    &:active {
+        border-bottom-width: 4px;
+    }
+}
+
+fv-container.top-left {
+    top: 10px;
+    left: 10px;
+    bottom: auto;
+    right: auto;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+        border-width: 10px 10px 10px 0;
+        border-style: solid;
+        border-color: transparent var(--fvuar-alert-border-colors) transparent transparent;
+        display: block;
+        width: 0;
+    }
+}
+
+fv-container.top-center {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: auto;
+    right: auto;
+    &::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent var(--fvuar-alert-border-colors) transparent;
+        display: block;
+        width: 0;
+    }
+}
+
+fv-container.top-right {
+    top: 10px;
+    right: 10px;
+    left: auto;
+    bottom: auto;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        border-width: 10px 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent transparent var(--fvuar-alert-border-colors);
+        display: block;
+        width: 0;
+    }
+}
+
+fv-container.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: auto;
+    right: auto;
+    &::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent var(--fvuar-alert-border-colors) transparent;
+        display: block;
+        width: 0;
+    }
+}
+
+fv-container.center-left {
+    top: 50% ;
+    left: 10px ;
+    transform: translateY(-50%) ;
+    bottom: auto ;
+    right: auto ;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+        border-width: 10px 10px 10px 0;
+        border-style: solid;
+        border-color: transparent var(--fvuar-alert-border-colors) transparent transparent;
+        display: block;
+        width: 0;
+    }
+}
+
+fv-container.center-right {
+    top: 50% ;
+    right: 10px ;
+    transform: translateY(-50%) ;
+    bottom: auto ;
+    left: auto ;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        border-width: 10px 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent transparent var(--fvuar-alert-border-colors);
+        display: block;
+        width: 0;
+    }
+}
+
+fv-container.bottom-left {
+    bottom: 10px;
+    left: 10px;
+    top: auto;
+    right: auto;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translateY(-50%);
+        border-width: 10px 10px 10px 0;
+        border-style: solid;
+        border-color: transparent var(--fvuar-alert-border-colors) transparent transparent;
+        display: block;
+        width: 0;
+    }
+}
+
+fv-container.bottom-center {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    right: auto;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 10px 10px 0;
+        border-style: solid;
+        border-color: var(--fvuar-alert-border-colors) transparent transparent transparent;
+        display: block;
+        width: 0;
+    }
+}
+
+fv-container.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    top: auto;
+    left: auto;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        border-width: 10px 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent transparent var(--fvuar-alert-border-colors);
+        display: block;
+        width: 0;
+    }
+}
+
+@media (max-width: 628px) {
+    fv-container {
+        display: flex ;
+        flex-direction: row-reverse ;
+        min-width: 60%;
+        max-width: 60%;
+        padding: calc(100% / 40) ;
+    }
+}
